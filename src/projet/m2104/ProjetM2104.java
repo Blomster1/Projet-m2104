@@ -24,10 +24,13 @@ public class ProjetM2104 {
         
         Scanner sc = new Scanner(System.in);
         System.out.println("Ajouté un CAF - 1");
+        System.out.println("Ajouté une Activité - 2");
         choix = sc.nextInt();
         
         if(choix==1){
             ffcam1.nouveauCAF();
+        } else if(choix==2) {
+            ffcam1.nouvelleActivite();
         }
         
         

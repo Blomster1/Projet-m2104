@@ -22,14 +22,29 @@ public class FFCAM {
         String site;
         
         Scanner sc = new Scanner(System.in);
-        System.out.println("Saisissez le nom du CAF");
+        System.out.print("Saisissez le nom du CAF");
         nom = sc.nextLine();
-        System.out.println("Saisissez l'adresse du CAF");
+        
+        System.out.print("\n Saisissez l'adresse du CAF");
         adresse = sc.nextLine();
-        System.out.println("Saisissez le site du CAF");
+        System.out.print("\n Saisissez le site du CAF");
         site = sc.nextLine();
         
         new CAF(nom,adresse,site);
     }
     
+    public void nouvelleActivite(){
+    //Creer un nouvelle activité
+        String nomAct;
+        
+         Scanner sc = new Scanner(System.in);
+         System.out.print("Nom de l'activité : ");
+         nomAct = sc.nextLine();
+         
+        new Activite(nomAct);
+    }
+    
+    public void ajouterActiviteCAF(){
+        
+    }
 }
