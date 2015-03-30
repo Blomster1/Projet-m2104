@@ -11,4 +11,18 @@ package projet.m2104;
  */
 public class FFCAM {
     private int numDerMonit;
+
+    public FFCAM(int numDerMonit) {
+        this.numDerMonit = numDerMonit;
+    }
+
+    public int getNumDerMonit() {
+        return numDerMonit;
+    }
+
+    public void setNumDerMonit(int numDerMonit) {
+        this.numDerMonit = numDerMonit;
+    }
+    
+    
 }

@@ -12,4 +12,27 @@ package projet.m2104;
 public abstract class Personne {
     private String nomPersonne;
     private String prenomPersonne;
+    
+    public Personne(String nomPersonne, String prenomPersonne){
+        this.nomPersonne=nomPersonne;
+        this.prenomPersonne=prenomPersonne;
+    }
+    
+    public String getNomPersonne() {
+        return nomPersonne;
+    }
+
+    public void setNomPersonne(String nomPersonne) {
+        this.nomPersonne = nomPersonne;
+    }
+
+    public String getPrenomPersonne() {
+        return prenomPersonne;
+    }
+
+    public void setPrenomPersonne(String prenomPersonne) {
+        this.prenomPersonne = prenomPersonne;
+    }
+    
+    
 }

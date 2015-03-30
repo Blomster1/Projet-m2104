@@ -11,4 +11,18 @@ package projet.m2104;
  */
 public class Activite {
     private String nomactivite;
+
+    public Activite(String nomactivite) {
+        this.nomactivite = nomactivite;
+    }
+
+    public String getNomactivite() {
+        return nomactivite;
+    }
+
+    public void setNomactivite(String nomactivite) {
+        this.nomactivite = nomactivite;
+    }
+    
+    
 }
