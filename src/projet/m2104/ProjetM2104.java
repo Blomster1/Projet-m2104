@@ -5,6 +5,8 @@
  */
 package projet.m2104;
 
+import java.util.Scanner;
+
 /**
  *
  * @author yevic
@@ -16,6 +18,20 @@ public class ProjetM2104 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        FFCAM ffcam1 = new FFCAM();
+        
+        int choix;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ajouté un CAF - 1");
+        choix = sc.nextInt();
+        
+        if(choix==1){
+            ffcam1.nouveauCAF();
+        }
+        
+        
+        
     }
     
 }

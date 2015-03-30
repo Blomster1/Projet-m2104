@@ -15,16 +15,16 @@ public class CAF {
     private String site;
 
     public CAF(String nomCAF, String adresse, String site) {
-        this.nomCAF = nomCAF;
-        this.adresse = adresse;
-        this.site = site;
+        setNomCAF(nomCAF);
+        setAdresse(adresse);
+        setSite(site);
     }
 
     public String getNomCAF() {
         return nomCAF;
     }
 
-    public void setNomCAF(String nomCAF) {
+    private void setNomCAF(String nomCAF) {
         this.nomCAF = nomCAF;
     }
 
@@ -32,7 +32,7 @@ public class CAF {
         return adresse;
     }
 
-    public void setAdresse(String adresse) {
+    private void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
@@ -40,7 +40,7 @@ public class CAF {
         return site;
     }
 
-    public void setSite(String site) {
+    private void setSite(String site) {
         this.site = site;
     }
     

@@ -5,24 +5,31 @@
  */
 package projet.m2104;
 
+import java.util.Scanner;
+
 /**
  *
  * @author yevic
  */
 public class FFCAM {
-    private int numDerMonit;
+   
+    public FFCAM(){}
 
-    public FFCAM(int numDerMonit) {
-        this.numDerMonit = numDerMonit;
+    public void nouveauCAF(){
+    // Creer un nouveau CAF
+        String nom;
+        String adresse;
+        String site;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Saisissez le nom du CAF");
+        nom = sc.nextLine();
+        System.out.println("Saisissez l'adresse du CAF");
+        adresse = sc.nextLine();
+        System.out.println("Saisissez le site du CAF");
+        site = sc.nextLine();
+        
+        new CAF(nom,adresse,site);
     }
-
-    public int getNumDerMonit() {
-        return numDerMonit;
-    }
-
-    public void setNumDerMonit(int numDerMonit) {
-        this.numDerMonit = numDerMonit;
-    }
-    
     
 }

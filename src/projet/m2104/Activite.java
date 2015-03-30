@@ -20,7 +20,7 @@ public class Activite {
         return nomactivite;
     }
 
-    public void setNomactivite(String nomactivite) {
+    private void setNomactivite(String nomactivite) {
         this.nomactivite = nomactivite;
     }
     
