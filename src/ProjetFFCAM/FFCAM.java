@@ -15,14 +15,10 @@ public class FFCAM {
 	private static final String DB_FILE = "clubs.db";
 	// les clubs locaux identifiés par leur nom
 	private HashMap<String, CAF> lesClubs;
-<<<<<<< HEAD
         //Les activités sont identifié par leur nom
         private HashMap<String, Activite> lesActivites;
-=======
         //Les activités sont identifiés par leur nom
-        private HashMap<String, Activite> lesActivite;
->>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
-	
+        private HashMap<String, Activite> lesActivite;	
   
     /**
      * Initialise le fichier de sérialisation
@@ -97,134 +93,127 @@ private Activite getActivite(String nomA) {
 
 //procédure de création d'une nouvelle activitée. 
 public void nouvelleActivite(){
-        ;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("\nAjout d'une activite\n");
-        System.out.print("Nom de l'activité :\t");
-        String nomA = sc.nextLine();
-        sc.close();
+        String nomA;
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("\nAjout d'une activite\n");
+            System.out.print("Nom de l'activité :\t");
+            nomA = sc.nextLine();
+        }
         
-<<<<<<< HEAD
-        if(this.getActivite(nomA)==null){
-=======
+        //
         //si l'activitée est pas existente
-        if(this.getActivte(nomA)==null){
->>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
+        if(this.getActivite(nomA)==null){
             Activite act= new Activite(nomA);
-            this.addActivite(act,nomA);
-        } else {
-<<<<<<< HEAD
+            this.addActivite(act,nomA); }
+        
+        else {
             System.out.println("\nUne activite de même nom existe déjà\n");
-        }
-=======
-            System.out.println("ERREUR : l'activité est déjà existente !\n");
-        }
-    
+        }    
 }
->>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
-        
 }
-
-    /**
-     * Met à jour du fichier de sérialisation
-     */
-    public boolean updateDB() {
-        return saveDB();
-    }
-
-    /**
-     * Création d'une nouvelle sérialisation
-     */
-    public void newDB() {
-	//this.setNumDerMonit(0);
-	this.setClubs(new HashMap<String, CAF>());
-	this.setActivites(new HashMap<String, Activite>());
-	//this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
-    }
-    
-   /**
-    * Sauvegarde du fichier de sérialisation
-    */
-	
-    private boolean saveDB() {
-        File file;
-        boolean success = true;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;            
-        
-        file = new File(DB_FILE);
-        try {
-            fos = new FileOutputStream(file);
-            oos = new ObjectOutputStream(fos);
-
-            //oos.writeInt(numDerMonit);
-            oos.writeObject(lesClubs);
-            oos.writeObject(lesActivites);
-            //oos.writeObject(lesMoniteurs);
-            
-        }
-        catch (Exception e) {
-            System.out.println("SAVE" + e);
-            success = false;
-        }
-        finally {
-                if (oos != null) { 
-                    try { oos.close(); }
-                    catch(IOException e) {}
-                }
-                
-                if (fos != null) { 
-                    try { fos.close(); }
-                    catch(IOException e) {}
-                }
-            
-        }
-        return success;
-    }
-    
-    /**
-     * Chargement des données à partir d'un fichier de sérialisation
-     */
-    public boolean loadDB() {
-        boolean success = true;
-        File file = new File(DB_FILE);
-        
-        if (file.exists()) {
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;            
-
-            try {
-                fis = new FileInputStream(file);
-                ois = new ObjectInputStream(fis);
-               // numDerMonit = ois.readInt();
-                lesClubs = (HashMap<String, CAF>) ois.readObject();
-                lesActivites = (HashMap<String, Activite>) ois.readObject();
-                //lesMoniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
-            }             
-            catch(Exception e) {
-                System.out.println("LOAD" + e);
-                success = false;
-            }
-            finally {
-                if (ois != null) { 
-                    try { ois.close(); }
-                    catch(IOException e) {}
-                }
-                
-                if (fis != null) { 
-                    try { fis.close(); }
-                    catch(IOException e) {}
-                }
-            }
-        } else { success = false; }
-        return success;
-    }
-
-    
-
-}
-
-
-
-
-
+//        
+//}
+//
+//    /**
+//     * Met à jour du fichier de sérialisation
+//     */
+//    public boolean updateDB() {
+//        return saveDB();
+//    }
+//
+//    /**
+//     * Création d'une nouvelle sérialisation
+//     */
+//    public void newDB() {
+//	//this.setNumDerMonit(0);
+//	this.setClubs(new HashMap<String, CAF>());
+//	this.setActivites(new HashMap<String, Activite>());
+//	//this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
+//    }
+//    
+//   /**
+//    * Sauvegarde du fichier de sérialisation
+//    */
+//	
+//    private boolean saveDB() {
+//        File file;
+//        boolean success = true;
+//        FileOutputStream fos = null;
+//        ObjectOutputStream oos = null;            
+//        
+//        file = new File(DB_FILE);
+//        try {
+//            fos = new FileOutputStream(file);
+//            oos = new ObjectOutputStream(fos);
+//
+//            //oos.writeInt(numDerMonit);
+//            oos.writeObject(lesClubs);
+//            oos.writeObject(lesActivites);
+//            //oos.writeObject(lesMoniteurs);
+//            
+//        }
+//        catch (Exception e) {
+//            System.out.println("SAVE" + e);
+//            success = false;
+//        }
+//        finally {
+//                if (oos != null) { 
+//                    try { oos.close(); }
+//                    catch(IOException e) {}
+//                }
+//                
+//                if (fos != null) { 
+//                    try { fos.close(); }
+//                    catch(IOException e) {}
+//                }
+//            
+//        }
+//        return success;
+//    }
+//    
+//    /**
+//     * Chargement des données à partir d'un fichier de sérialisation
+//     */
+//    public boolean loadDB() {
+//        boolean success = true;
+//        File file = new File(DB_FILE);
+//        
+//        if (file.exists()) {
+//            FileInputStream fis = null;
+//            ObjectInputStream ois = null;            
+//
+//            try {
+//                fis = new FileInputStream(file);
+//                ois = new ObjectInputStream(fis);
+//               // numDerMonit = ois.readInt();
+//                lesClubs = (HashMap<String, CAF>) ois.readObject();
+//                lesActivites = (HashMap<String, Activite>) ois.readObject();
+//                //lesMoniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
+//            }             
+//            catch(Exception e) {
+//                System.out.println("LOAD" + e);
+//                success = false;
+//            }
+//            finally {
+//                if (ois != null) { 
+//                    try { ois.close(); }
+//                    catch(IOException e) {}
+//                }
+//                
+//                if (fis != null) { 
+//                    try { fis.close(); }
+//                    catch(IOException e) {}
+//                }
+//            }
+//        } else { success = false; }
+//        return success;
+//    }
+//
+//    
+//
+//}
+//
+//
+//
+//
+//

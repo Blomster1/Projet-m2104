@@ -32,15 +32,13 @@ public class MenuFFCAM {
 			choix = sc.nextInt();
 			switch (choix) {
 				case 1: {
-					if (! ff.loadDB()) { ff.newDB();}
-					ff.nouveauCAF(); 
-                                        ff.updateDB();
+//					if (! ff.loadDB()) { ff.newDB();}
+//					ff.nouveauCAF(); 
+//                                        ff.updateDB();
                                         break; }
                                 case 2: {
-                                    if (! ff.loadDB()) { ff.newDB();}
 					ff.nouvelleActivite(); 
-                                        ff.updateDB();
-                                        break; }
+                                        break; } 
 				default:
 					break;
 				} // switch.newDB(
