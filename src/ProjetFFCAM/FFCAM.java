@@ -16,7 +16,7 @@ public class FFCAM {
 	// les clubs locaux identifiés par leur nom
 	private HashMap<String, CAF> lesClubs;
         //Les activités sont identifié par leur nom
-        private HashMap<String, Activite> lesActivite;
+        private HashMap<String, Activite> lesActivites;
 	
   
     /**
@@ -30,7 +30,7 @@ private HashMap<String, CAF> getClubs() {
 }
 
 private HashMap<String, Activite> getActivites(){
-    return lesActivite;
+    return lesActivites;
 }
     /**
      * retourne le club à partir de son nom
@@ -41,7 +41,7 @@ private CAF getClub(String nom){
     /**
      * ajoute le club avec son nom dans le tableau associatif
      */
-private void addClub( CAF c, String n){
+private void addClub(CAF c, String n){
 	this.getClubs().put(n, c);
 }
 
@@ -75,21 +75,34 @@ public void nouveauCAF()	{
 	}
 }
 
-private Object getActivte(String nomA) {
+private void addActivite(Activite a, String s){
+    //ajoute une activité dans le tableau associatif
+    this.getActivites().put(s,a);
+}
+private void setActivites(HashMap<String,Activite> activites){
+    //Initialise un tableau d'activité
+    lesActivites=activites;
+}
+
+private Activite getActivite(String nomA) {
+    //Retourne une activité a partir de son nom
         return getActivites().get(nomA);
     }
 
 public void nouvelleActivite(){
+        ;
         Scanner sc = new Scanner(System.in);
         System.out.println("\nAjout d'une activite\n");
         System.out.print("Nom de l'activité :\t");
         String nomA = sc.nextLine();
+        sc.close();
         
-        if(this.getActivte(nomA)==null){
+        if(this.getActivite(nomA)==null){
             Activite act= new Activite(nomA);
+            this.addActivite(act,nomA);
         } else {
-    
-}
+            System.out.println("\nUne activite de même nom existe déjà\n");
+        }
         
 }
 
@@ -106,7 +119,7 @@ public void nouvelleActivite(){
     public void newDB() {
 	//this.setNumDerMonit(0);
 	this.setClubs(new HashMap<String, CAF>());
-	//this.setActivites(new HashMap<String, Activite>());
+	this.setActivites(new HashMap<String, Activite>());
 	//this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
     }
     
@@ -127,7 +140,7 @@ public void nouvelleActivite(){
 
             //oos.writeInt(numDerMonit);
             oos.writeObject(lesClubs);
-            //oos.writeObject(lesActivites);
+            oos.writeObject(lesActivites);
             //oos.writeObject(lesMoniteurs);
             
         }
@@ -166,7 +179,7 @@ public void nouvelleActivite(){
                 ois = new ObjectInputStream(fis);
                // numDerMonit = ois.readInt();
                 lesClubs = (HashMap<String, CAF>) ois.readObject();
-                //lesActivites = (HashMap<String, Activite>) ois.readObject();
+                lesActivites = (HashMap<String, Activite>) ois.readObject();
                 //lesMoniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
             }             
             catch(Exception e) {

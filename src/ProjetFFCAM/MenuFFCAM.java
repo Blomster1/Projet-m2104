@@ -36,6 +36,11 @@ public class MenuFFCAM {
 					ff.nouveauCAF(); 
                                         ff.updateDB();
                                         break; }
+                                case 2: {
+                                    if (! ff.loadDB()) { ff.newDB();}
+					ff.nouvelleActivite(); 
+                                        ff.updateDB();
+                                        break; }
 				default:
 					break;
 				} // switch.newDB(
