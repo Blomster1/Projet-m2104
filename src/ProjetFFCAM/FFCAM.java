@@ -15,7 +15,7 @@ public class FFCAM {
 	private static final String DB_FILE = "clubs.db";
 	// les clubs locaux identifiés par leur nom
 	private HashMap<String, CAF> lesClubs;
-        //Les activités sont identifié par leur nom
+        //Les activités sont identifiés par leur nom
         private HashMap<String, Activite> lesActivite;
 	
   
@@ -79,15 +79,20 @@ private Object getActivte(String nomA) {
         return getActivites().get(nomA);
     }
 
+
+//procédure de création d'une nouvelle activitée. 
 public void nouvelleActivite(){
         Scanner sc = new Scanner(System.in);
         System.out.println("\nAjout d'une activite\n");
         System.out.print("Nom de l'activité :\t");
         String nomA = sc.nextLine();
         
+        //si l'activitée est pas existente
         if(this.getActivte(nomA)==null){
             Activite act= new Activite(nomA);
         } else {
+            System.out.println("ERREUR : l'activité est déjà existente !\n");
+        }
     
 }
         
