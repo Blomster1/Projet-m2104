@@ -15,8 +15,13 @@ public class FFCAM {
 	private static final String DB_FILE = "clubs.db";
 	// les clubs locaux identifiés par leur nom
 	private HashMap<String, CAF> lesClubs;
+<<<<<<< HEAD
         //Les activités sont identifié par leur nom
         private HashMap<String, Activite> lesActivites;
+=======
+        //Les activités sont identifiés par leur nom
+        private HashMap<String, Activite> lesActivite;
+>>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
 	
   
     /**
@@ -89,6 +94,8 @@ private Activite getActivite(String nomA) {
         return getActivites().get(nomA);
     }
 
+
+//procédure de création d'une nouvelle activitée. 
 public void nouvelleActivite(){
         ;
         Scanner sc = new Scanner(System.in);
@@ -97,12 +104,24 @@ public void nouvelleActivite(){
         String nomA = sc.nextLine();
         sc.close();
         
+<<<<<<< HEAD
         if(this.getActivite(nomA)==null){
+=======
+        //si l'activitée est pas existente
+        if(this.getActivte(nomA)==null){
+>>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
             Activite act= new Activite(nomA);
             this.addActivite(act,nomA);
         } else {
+<<<<<<< HEAD
             System.out.println("\nUne activite de même nom existe déjà\n");
         }
+=======
+            System.out.println("ERREUR : l'activité est déjà existente !\n");
+        }
+    
+}
+>>>>>>> e9999f44a0df250adf2471e7d6c9ff320bdbc554
         
 }
 
