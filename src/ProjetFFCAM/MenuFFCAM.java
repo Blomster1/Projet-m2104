@@ -11,6 +11,7 @@ public class MenuFFCAM {
 	        
 	    	Scanner sc = new Scanner(System.in);
 	        	
+               //création d'un FFCAM ici
 	    	FFCAM ff = new FFCAM();
 	    	
 			int choix;

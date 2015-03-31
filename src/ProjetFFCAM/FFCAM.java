@@ -17,13 +17,11 @@ public class FFCAM {
 	private HashMap<String, CAF> lesClubs;
         //Les activités sont identifié par leur nom
         private HashMap<String, Activite> lesActivites;
-        //Les activités sont identifiés par leur nom
-        private HashMap<String, Activite> lesActivite;	
-  
     /**
      * Initialise le fichier de sérialisation
      */
 public FFCAM() {
+    lesActivites = new HashMap<>();
     }
 
 private HashMap<String, CAF> getClubs() {
@@ -78,7 +76,7 @@ public void nouveauCAF()	{
 
 private void addActivite(Activite a, String s){
     //ajoute une activité dans le tableau associatif
-    this.getActivites().put(s,a);
+    lesActivites.put(s, a);
 }
 private void setActivites(HashMap<String,Activite> activites){
     //Initialise un tableau d'activité
@@ -88,27 +86,33 @@ private void setActivites(HashMap<String,Activite> activites){
 private Activite getActivite(String nomA) {
     //Retourne une activité a partir de son nom
         return getActivites().get(nomA);
-    }
+}
 
 
 //procédure de création d'une nouvelle activitée. 
 public void nouvelleActivite(){
         String nomA;
-        try (Scanner sc = new Scanner(System.in)) {
-            System.out.println("\nAjout d'une activite\n");
-            System.out.print("Nom de l'activité :\t");
-            nomA = sc.nextLine();
-        }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nAjout d'une activite\n");
+        System.out.print("Nom de l'activité :\t");
+        nomA = sc.nextLine();
+        
         
         //
         //si l'activitée est pas existente
-        if(this.getActivite(nomA)==null){
-            Activite act= new Activite(nomA);
-            this.addActivite(act,nomA); }
         
-        else {
+        if (this.getActivites().containsKey(nomA)) {
             System.out.println("\nUne activite de même nom existe déjà\n");
-        }    
+        }
+        else 
+        {
+            Activite act = new Activite(nomA);
+            this.addActivite(act, nomA);
+        }
+//        else {
+//            System.out.println("\nUne activite de même nom existe déjà\n");
+//        }    
+
 }
 }
 //        
