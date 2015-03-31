@@ -15,6 +15,8 @@ public class FFCAM {
 	private static final String DB_FILE = "clubs.db";
 	// les clubs locaux identifiés par leur nom
 	private HashMap<String, CAF> lesClubs;
+        //Les activités sont identifié par leur nom
+        private HashMap<String, Activite> lesActivite;
 	
   
     /**
@@ -25,6 +27,10 @@ public FFCAM() {
 
 private HashMap<String, CAF> getClubs() {
 	return lesClubs;
+}
+
+private HashMap<String, Activite> getActivites(){
+    return lesActivite;
 }
     /**
      * retourne le club à partir de son nom
@@ -50,8 +56,10 @@ public void nouveauCAF()	{
 	System.out.println("\nAjout d'un CAF local\n");			
 	System.out.print("Nom du CAF :\t");
 	String nomc = 	sc.nextLine();
-		
+	
+        
         if (this.getClub(nomc) == null) {
+            //Si on ne trouve pas de club ayant le nom saisi
 		System.out.print("Adresse du CAF :\t");
 		String a = 	sc.nextLine();
 		System.out.print("Site internet du CAF :\t");
@@ -65,6 +73,24 @@ public void nouveauCAF()	{
                 System.out.println("\n\tUn CAF local de même nom existe déjà\n");
                         
 	}
+}
+
+private Object getActivte(String nomA) {
+        return getActivites().get(nomA);
+    }
+
+public void nouvelleActivite(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nAjout d'une activite\n");
+        System.out.print("Nom de l'activité :\t");
+        String nomA = sc.nextLine();
+        
+        if(this.getActivte(nomA)==null){
+            Activite act= new Activite(nomA);
+        } else {
+    
+}
+        
 }
 
     /**
@@ -161,6 +187,8 @@ public void nouveauCAF()	{
         } else { success = false; }
         return success;
     }
+
+    
 
 }
 

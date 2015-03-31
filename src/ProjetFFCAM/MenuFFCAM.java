@@ -38,7 +38,7 @@ public class MenuFFCAM {
                                         break; }
 				default:
 					break;
-				} // switch
+				} // switch.newDB(
 			} while (choix != 0);	
 	    }
 }
