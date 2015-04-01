@@ -41,6 +41,9 @@ public class MenuFFCAM {
                                 case 2: {
 					ff.nouvelleActivite(); 
                                         break; }
+                                case 3: {
+                                        ff.ajouterActivite();
+                                        break; }
                                 case 4: {
                                         ff.afficheInfos();
                                         break; }

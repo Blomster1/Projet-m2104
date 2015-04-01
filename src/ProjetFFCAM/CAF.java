@@ -37,6 +37,7 @@ public class CAF implements java.io.Serializable {
 	public String getSite() {
 		return site;		
 	}
+        
 
 	public String getNomCAF(){
 		return nomCAF ;
@@ -46,14 +47,29 @@ public class CAF implements java.io.Serializable {
 		return adresse;
 	}
 
-        public HashSet<Activite> getActivitesDuClub() {
+        public HashSet<Activite> getActivites() {
             return ActivitesDuClub;
         }
 
-        public void setActivitesDuClub(HashSet<Activite> ActiviteDuClub) {
+        private void setActivites(HashSet<Activite> ActiviteDuClub) {
             this.ActivitesDuClub = ActiviteDuClub;
         }
 	
-        
+        public boolean ajouterActivite(Activite a){
+            if(!this.getActivites().contains(a)){
+                addActivite(a);
+                a.ajouterClub(this);
+                return true;
+            } else {
+                System.out.println("Cette activité n'existe pas.");
+                return false;
+            }
+        }
 
+    private void addActivite(Activite a) {
+        this.getActivites().add(a);
+    }
+        
+        
+        
 }
