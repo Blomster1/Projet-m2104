@@ -61,7 +61,7 @@ public class CAF implements java.io.Serializable {
                 a.ajouterClub(this);
                 return true;
             } else {
-                System.out.println("Cette activité n'existe pas.");
+                System.out.println("Cette Acivite existe deja pour ce CAF local.");
                 return false;
             }
         }

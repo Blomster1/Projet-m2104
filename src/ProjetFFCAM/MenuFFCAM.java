@@ -34,18 +34,29 @@ public class MenuFFCAM {
 			choix = sc.nextInt();
 			switch (choix) {
 				case 1: {
-//					if (! ff.loadDB()) { ff.newDB();}
+					if (! ff.loadDB()) { ff.newDB();}
 					ff.nouveauCAF(); 
-//                                        ff.updateDB();
+                                        ff.updateDB();
                                         break; }
                                 case 2: {
-					ff.nouvelleActivite(); 
+ //                                       if (! ff.loadDB()) { ff.newDB();}
+					ff.nouvelleActivite();
+//                                        ff.updateDB();
                                         break; }
                                 case 3: {
+//                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.ajouterActivite();
+//                                        ff.updateDB();
                                         break; }
                                 case 4: {
+//                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.afficheInfos();
+//                                        ff.updateDB();
+                                        break; }
+                                case 5: {
+//                                        if (! ff.loadDB()) { ff.newDB();}
+                                        ff.afficheInfosAct();
+//                                        ff.updateDB();
                                         break; }
 				default:
 					break;

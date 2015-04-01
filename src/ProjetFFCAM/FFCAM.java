@@ -7,10 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class FFCAM {
+public class FFCAM implements Serializable{
          // Fichier de sérialisation
 	private static final String DB_FILE = "clubs.db";
 	// les clubs locaux identifiés par leur nom
@@ -115,23 +116,21 @@ public void nouvelleActivite(){
 //        }    
 
 }
-public void afficheInfos(){
-    
+public void afficheInfos(){ 
     CAF caf;
     String nomClub;
-    
-    
     Scanner sc = new Scanner(System.in);
     System.out.println("Nom du club : ");
     nomClub=sc.nextLine();
-    
-    
     if(lesClubs.get(nomClub)!=null){
         caf = lesClubs.get(nomClub);
         System.out.println(caf.getNomCAF());
         System.out.println(caf.getAdresse());
         System.out.println(caf.getSite());
-        System.out.println(caf.getActivites());
+        System.out.println("Liste des activités proposées par le club :");
+        for(Activite act : caf.getActivites()){
+            System.out.println("    - " + act.getNomAct());
+        }        
     } else {
         System.out.println("Ce club n'existe pas.");
     }
@@ -144,20 +143,38 @@ public void ajouterActivite(){
     String nomAct;
     System.out.println("Nom du club : ");
     nomClub = sc.nextLine();
-    
      if(lesClubs.get(nomClub)!=null){
-        caf = lesClubs.get(nomClub);
-        
+        caf = lesClubs.get(nomClub); 
         System.out.println("Nom de l'activité : ");
         nomAct = sc.nextLine();
+        if(getActivite(nomAct)!=null){
         caf.ajouterActivite(getActivite(nomAct));
+        } else {
+            System.out.println("Cette activité n'existe pas.");
+        }
      } else {
          System.out.println("Le club n'existe pas.");
      }
+}   
+public void afficheInfosAct(){
+    String nomAct;
+    Activite act;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Nom de l'activite : ");
+    nomAct = sc.nextLine();
     
-    
-    
+    if(getActivite(nomAct)!=null){        
+  //      CAF LC = getActivite(nomAct).getLesClubs();
+        System.out.println("nom activite : " + getActivite(nomAct).getNomAct());
+        for (CAF lc : getActivite(nomAct).getLesClubs() ) {
+            System.out.println("Nom Caf : "+lc.getNomCAF());
+            System.out.println("     Adresse : "+lc.getAdresse());
+            System.out.println("     Site : "+lc.getSite());
+            System.out.println("---------------------");
+        }
+    }
 }
+
 
     /**
      * Met à jour du fichier de sérialisation

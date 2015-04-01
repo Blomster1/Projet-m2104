@@ -32,6 +32,7 @@ public class Activite {
     public HashSet<CAF> getLesClubs() {
         return lesClubs;
     }
+    
 
     public void setLesClubs(HashSet<CAF> lesClubs) {
         this.lesClubs = lesClubs;
