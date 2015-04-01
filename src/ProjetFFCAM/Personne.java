@@ -11,7 +11,7 @@ import java.util.HashSet;
  *
  * @author hanriaca
  */
-public class Personne {
+public abstract class Personne {
     private String prenom;
     private String nom;
     private HashSet<Sortie> sorties;
@@ -24,16 +24,14 @@ public class Personne {
     }
     
     
-    //ensemble des setteurs : 
+    //ensemble des setters : 
     //--------------------------
     private void setNomPersonne(String n) {
         nom = n;        
     }
-
     private void setPrenomPersonne(String p) {
         prenom = p;
     }
-    
     private void setSorties(HashSet<Sortie> s) {
         sorties = s;
     }
@@ -67,7 +65,8 @@ public class Personne {
     }
     
     public void addSortie(Sortie s) {
-    //SPECIFICATION : la sortie s n'existe pas dans la base de donnée 
+    //SPECIFICATION : la sortie s n'existe pas dans la base de donnée
+        //Mais non mec on s'en branle on le verifie au dessus ca
         sorties.add(s);
     }
 }

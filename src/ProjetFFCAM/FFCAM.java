@@ -29,35 +29,99 @@ public FFCAM() {
 private HashMap<String, CAF> getClubs() {
 	return lesClubs;
 }
+/*
+    Activite ---------------------------------------
+*/
 
 private HashMap<String, Activite> getActivites(){
+    
     return lesActivites;
 }
-    /**
-     * retourne le club à partir de son nom
-     */
+//Retourne le hashmap dontenant les activités
+
+private void setActivites(HashMap<String,Activite> activites){
+   
+    lesActivites=activites;
+}
+ //Initialise un tableau d'activité
+
+private Activite getActivite(String nomA) {
+    
+        return getActivites().get(nomA);
+}
+//Retourne une activité a partir de son nom
+
+public void ajouterActivite(){
+    CAF caf;
+    Scanner sc = new Scanner(System.in);
+    String nomClub;
+    String nomAct;
+    System.out.println("Nom du club : ");
+    nomClub = sc.nextLine();
+     if(lesClubs.get(nomClub)!=null){
+        caf = lesClubs.get(nomClub); 
+        System.out.println("Nom de l'activité : ");
+        nomAct = sc.nextLine();
+        if(getActivite(nomAct)!=null){
+        caf.ajouterActivite(getActivite(nomAct));
+        } else {
+            System.out.println("Cette activité n'existe pas.");
+        }
+     } else {
+         System.out.println("Le club n'existe pas.");
+     }
+}
+//Ajoute une activité pour un club donné
+
+public void afficheInfosAct(){
+    String nomAct;
+    Activite act;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Nom de l'activite : ");
+    nomAct = sc.nextLine();
+    
+    if(getActivite(nomAct)!=null){        
+  //      CAF LC = getActivite(nomAct).getLesClubs();
+        System.out.println("nom activite : " + getActivite(nomAct).getNomAct());
+        for (CAF lc : getActivite(nomAct).getLesClubs() ) {
+            System.out.println("Nom Caf : "+lc.getNomCAF());
+            System.out.println("     Adresse : "+lc.getAdresse());
+            System.out.println("     Site : "+lc.getSite());
+            System.out.println("---------------------");
+        }
+    }
+}
+//Affiche toute les infos d'une activité
+
+//---------------------------------------------
+
+/*
+    CLUBS --------------------------------------
+*/
 private CAF getClub(String nom){
+   
 	return getClubs().get(nom);
 }
-    /**
-     * ajoute le club avec son nom dans le tableau associatif
-     */
+//retourne le club à partir de son nom
+
 private void addClub(CAF c, String n){
+    
 	this.getClubs().put(n, c);
 }
+//ajoute le club avec son nom dans le tableau associatif
 
 private void setClubs(HashMap<String, CAF> clubs){
 	lesClubs = clubs;
 }
-    /**
-     * création d'un nouveau club local
-     */
-public void nouveauCAF()	{
+//Initialise un tableau contenant les clubs
+
+public void nouveauCAF(){
+    
 	Scanner sc = new Scanner(System.in);
 	System.out.println("\nAjout d'un CAF local\n");			
 	System.out.print("Nom du CAF :\t");
 	String nomc = 	sc.nextLine();
-	
+
         
         if (this.getClub(nomc) == null) {
             //Si on ne trouve pas de club ayant le nom saisi
@@ -75,23 +139,15 @@ public void nouveauCAF()	{
                         
 	}
 }
+//création d'un nouveau club local
 
 private void addActivite(Activite a, String s){
-    //ajoute une activité dans le tableau associatif
+    
     lesActivites.put(s, a);
 }
-private void setActivites(HashMap<String,Activite> activites){
-    //Initialise un tableau d'activité
-    lesActivites=activites;
-}
-
-private Activite getActivite(String nomA) {
-    //Retourne une activité a partir de son nom
-        return getActivites().get(nomA);
-}
+//ajoute une activité dans le tableau associatif
 
 
-//procédure de création d'une nouvelle activitée. 
 public void nouvelleActivite(){
         String nomA;
         Scanner sc = new Scanner(System.in);
@@ -116,6 +172,8 @@ public void nouvelleActivite(){
 //        }    
 
 }
+//procédure de création d'une nouvelle activitée.
+
 public void afficheInfos(){ 
     CAF caf;
     String nomClub;
@@ -135,45 +193,9 @@ public void afficheInfos(){
         System.out.println("Ce club n'existe pas.");
     }
 }
+//Affiche les information d'une activité
 
-public void ajouterActivite(){
-    CAF caf;
-    Scanner sc = new Scanner(System.in);
-    String nomClub;
-    String nomAct;
-    System.out.println("Nom du club : ");
-    nomClub = sc.nextLine();
-     if(lesClubs.get(nomClub)!=null){
-        caf = lesClubs.get(nomClub); 
-        System.out.println("Nom de l'activité : ");
-        nomAct = sc.nextLine();
-        if(getActivite(nomAct)!=null){
-        caf.ajouterActivite(getActivite(nomAct));
-        } else {
-            System.out.println("Cette activité n'existe pas.");
-        }
-     } else {
-         System.out.println("Le club n'existe pas.");
-     }
-}   
-public void afficheInfosAct(){
-    String nomAct;
-    Activite act;
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Nom de l'activite : ");
-    nomAct = sc.nextLine();
-    
-    if(getActivite(nomAct)!=null){        
-  //      CAF LC = getActivite(nomAct).getLesClubs();
-        System.out.println("nom activite : " + getActivite(nomAct).getNomAct());
-        for (CAF lc : getActivite(nomAct).getLesClubs() ) {
-            System.out.println("Nom Caf : "+lc.getNomCAF());
-            System.out.println("     Adresse : "+lc.getAdresse());
-            System.out.println("     Site : "+lc.getSite());
-            System.out.println("---------------------");
-        }
-    }
-}
+//---------------------------------------------
 
 
     /**
