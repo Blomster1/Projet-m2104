@@ -39,24 +39,24 @@ public class MenuFFCAM {
                                         ff.updateDB();
                                         break; }
                                 case 2: {
- //                                       if (! ff.loadDB()) { ff.newDB();}
+                                       if (! ff.loadDB()) { ff.newDB();}
 					ff.nouvelleActivite();
-//                                        ff.updateDB();
+                                        ff.updateDB();
                                         break; }
                                 case 3: {
-//                                        if (! ff.loadDB()) { ff.newDB();}
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.ajouterActivite();
-//                                        ff.updateDB();
+                                        ff.updateDB();
                                         break; }
                                 case 4: {
-//                                        if (! ff.loadDB()) { ff.newDB();}
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.afficheInfos();
-//                                        ff.updateDB();
+                                        ff.updateDB();
                                         break; }
                                 case 5: {
-//                                        if (! ff.loadDB()) { ff.newDB();}
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.afficheInfosAct();
-//                                        ff.updateDB();
+                                        ff.updateDB();
                                         break; }
 				default:
 					break;

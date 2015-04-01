@@ -7,12 +7,12 @@
 package ProjetFFCAM;
 
 import java.util.HashSet;
-
+import java.io.Serializable;
 /**
  *
  * @author tabitay
  */
-public class Activite {
+public class Activite implements Serializable {
     private String nomAct;
     HashSet<CAF> lesClubs;
 
