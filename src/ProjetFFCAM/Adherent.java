@@ -38,5 +38,16 @@ public class Adherent extends Personne {
     private void setSoleNuites(double soleNuites) {
         this.soleNuites = soleNuites;
     }
+    
+    //AJOUT DE SORTIES
+    @Override
+    public void ajouterSortie(Sortie s){
+        if(!lesSorties.contains(s)){
+            this.addSortie(s);
+        } else {
+            System.out.println("ERREUR : la sortie existe déjà. ");
+            }
+        }
+    
 
 }
