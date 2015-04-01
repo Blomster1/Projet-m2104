@@ -16,6 +16,7 @@ public class MenuFFCAM {
 	    	
 			int choix;
 			do {
+                            
 			System.out.println("\n****************************************************************");
 			System.out.println("    *  Fédération Francaise des Clubs Alpins et de Montagne    *");
 			System.out.println("****************************************************************");

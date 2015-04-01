@@ -120,6 +120,7 @@ public void afficheInfos(){
     CAF caf;
     String nomClub;
     
+    
     Scanner sc = new Scanner(System.in);
     System.out.println("Nom du club : ");
     nomClub=sc.nextLine();
