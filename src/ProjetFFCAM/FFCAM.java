@@ -22,6 +22,7 @@ public class FFCAM {
      */
 public FFCAM() {
     lesActivites = new HashMap<>();
+    lesClubs = new HashMap<>();
     }
 
 private HashMap<String, CAF> getClubs() {
@@ -101,13 +102,13 @@ public void nouvelleActivite(){
         //
         //si l'activitée est pas existente
         
-        if (this.getActivites().containsKey(nomA)) {
-            System.out.println("\nUne activite de même nom existe déjà\n");
+        if (this.getActivite(nomA)==null) {
+            Activite act = new Activite(nomA);
+            this.addActivite(act, nomA);
         }
         else 
         {
-            Activite act = new Activite(nomA);
-            this.addActivite(act, nomA);
+            System.out.println("\nUne activite de même nom existe déjà\n");
         }
 //        else {
 //            System.out.println("\nUne activite de même nom existe déjà\n");

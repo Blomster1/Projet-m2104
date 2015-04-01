@@ -34,7 +34,7 @@ public class MenuFFCAM {
 			switch (choix) {
 				case 1: {
 //					if (! ff.loadDB()) { ff.newDB();}
-//					ff.nouveauCAF(); 
+					ff.nouveauCAF(); 
 //                                        ff.updateDB();
                                         break; }
                                 case 2: {
