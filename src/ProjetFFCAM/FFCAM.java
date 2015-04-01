@@ -115,6 +115,26 @@ public void nouvelleActivite(){
 //        }    
 
 }
+public void afficheInfos(){
+    
+    CAF caf;
+    String nomClub;
+    
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Nom du club : ");
+    nomClub=sc.nextLine();
+    
+    
+    if(lesClubs.get(nomClub)!=null){
+        caf = lesClubs.get(nomClub);
+        System.out.println(caf.getNomCAF());
+        System.out.println(caf.getAdresse());
+        System.out.println(caf.getSite());
+        System.out.println(caf.getActivitesDuClub());
+    } else {
+        System.out.println("Ce club n'existe pas.");
+    }
+}
 }
 //        
 //}

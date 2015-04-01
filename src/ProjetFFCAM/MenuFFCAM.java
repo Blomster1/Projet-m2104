@@ -39,7 +39,10 @@ public class MenuFFCAM {
                                         break; }
                                 case 2: {
 					ff.nouvelleActivite(); 
-                                        break; } 
+                                        break; }
+                                case 4: {
+                                        ff.afficheInfos();
+                                        break; }
 				default:
 					break;
 				} // switch.newDB(
