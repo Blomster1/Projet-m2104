@@ -12,7 +12,8 @@ import java.util.*;
  * @author hanriaca
  */
 class Sortie {
-    HashSet<Personne> lesParticipants;
+    HashSet<Adherent> lesParticipants;
+    HashSet<Moniteur> lesMoniteurs;
     private String nomSortie;
     private double prixNuite;
     private GregorianCalendar date;
@@ -27,11 +28,11 @@ class Sortie {
         this.setType(a);
         this.setOrganisateur(c);
         lesParticipants = new HashSet<>();
+        lesMoniteurs = new HashSet<>();
     }
     
     //GETTERS
-
-    public HashSet<Personne> getLesParticipants() {
+    public HashSet<Adherent> getLesParticipants() {
         return lesParticipants;
     }
     public String getNomSortie() {
@@ -49,12 +50,14 @@ class Sortie {
     public CAF getOrganisateur() {
         return Organisateur;
     }
+    public HashSet<Moniteur> getLesMoniteurs() {
+        return lesMoniteurs;
+    }
     
     
     
     //SETTERS
-
-    private void setLesParticipants(HashSet<Personne> lesPersonnes) {
+    private void setLesParticipants(HashSet<Adherent> lesPersonnes) {
         this.lesParticipants = lesPersonnes;
     }
     private void setNomSortie(String nomSortie) {
@@ -72,15 +75,39 @@ class Sortie {
     private void setOrganisateur(CAF Organisateur) {
         this.Organisateur = Organisateur;
     }
+    private void setLesMoniteurs(HashSet<Moniteur> lesMoniteurs) {
+        this.lesMoniteurs = lesMoniteurs;
+    }
+    
     
     // AJOUT DES PARTICPANTS
- /*   private void addPariticpants(Personne p){
-        lesParticipants.add(p);
+    private void addPariticpants(Adherent a){
+        lesParticipants.add(a);
+    } 
+    public boolean ajouterParticipants(Adherent a){
+        if(!getLesParticipants().contains(a)){
+            this.addPariticpants(a);
+            System.out.println("Participant ajouté OK");
+            return true;
+        } else {
+            System.out.println("Ce participant participe deja a cette activité.");
+            return false;
+        }
     }
     
-    public boolean ajouterParticipants(){
+// AJOUT DES ENCADRANTS
+    private void addEncadrant(Moniteur m){
+        lesMoniteurs.add(m);
     }
-        */
+    public boolean ajouterEncadrant(Moniteur m){
+        if(!lesMoniteurs.contains(m)){
+            this.addEncadrant(m);
+            return true;
+        } else {
+            return false;
+        }
+}
+ 
 
  
 
