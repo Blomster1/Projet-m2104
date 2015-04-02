@@ -18,12 +18,18 @@ public class FFCAM implements Serializable{
 	private HashMap<String, CAF> lesClubs;
         //Les activités sont identifié par leur nom
         private HashMap<String, Activite> lesActivites;
+        //Les moniteurs sont identifiés par leurs numéros
+        private HashMap<Integer, Moniteur> moniteurs;
+        //dernier numero de moniteur
+        private int numDerMonit;
     /**
      * Initialise le fichier de sérialisation
      */
 public FFCAM() {
     lesActivites = new HashMap<>();
     lesClubs = new HashMap<>();
+    moniteurs = new HashMap<>();
+    numDerMonit=0;
     }
 
 private HashMap<String, CAF> getClubs() {
@@ -34,7 +40,6 @@ private HashMap<String, CAF> getClubs() {
 */
 
 private HashMap<String, Activite> getActivites(){
-    
     return lesActivites;
 }
 //Retourne le hashmap dontenant les activités
@@ -147,7 +152,48 @@ private void addActivite(Activite a, String s){
 }
 //ajoute une activité dans le tableau associatif
 
+//---------------------------travail sur moniteur
 
+
+public void nouveauMoniteur() {
+//ajoute un nouveau moniteur au hashmap moniteurs suite à une demande.
+    Scanner sc = new Scanner(System.in);
+    String nom;
+    String prenom;
+    String diplome;
+    
+    System.out.println("Ajout d'un moniteur : ");
+    System.out.print("Nom : ");
+    nom = sc.nextLine();
+    System.out.print("Prenom : ");
+    prenom = sc.nextLine();
+    System.out.print("Diplome : ");
+    diplome = sc.nextLine();
+    
+    Moniteur monit = new Moniteur(nom,prenom,this.getNumDerMonit(),diplome);
+    moniteurs.put(this.getNumDerMonit(), monit);
+}
+public void ajouterEncadrant() {
+//ajoute l'encadrant sur une sortie
+}
+private HashMap<Integer,Moniteur> getMoniteurs() {
+    return moniteurs;
+}
+
+private Moniteur getMoniteur(Integer num) {
+    return this.getMoniteurs().get(num);
+}
+
+private void genereNumMonit() {
+}
+
+
+public int getNumDerMonit() {
+//procedure qui conserve le dernier numéro de moniteurs
+    return numDerMonit;
+}
+
+//----------------Activitees
 public void nouvelleActivite(){
         String nomA;
         Scanner sc = new Scanner(System.in);

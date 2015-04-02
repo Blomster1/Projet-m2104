@@ -15,7 +15,7 @@ public class Moniteur extends Personne {
     private int numero;
     
     //constructeur
-    public Moniteur (String n, String p, String d, int num) {
+    public Moniteur (String n, String p,int num,String d) {
         super(n,p);
         this.setDiplome(d);
         this.setNumero(num);
