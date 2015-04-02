@@ -96,6 +96,17 @@ public class CAF implements java.io.Serializable {
    }
    
    //AJOUTER SORTIE
+   public void ajouterSortie(String n, GregorianCalendar d, Activite a, double p, CAF c) {
+       //ajoute la sortie.
+       
+       //si la sortie existe pas, on l'ajoute
+       if (this.getSortie(n) == null) {
+           this.addSortie(n, new Sortie(n,d,a,p,c));
+       }
+       else {
+           System.out.println("ERREUR : La sortie existe deja dans le club " + this.getNomCAF());
+       }
+   }
    private void addSortie(String noms, Sortie s){
        sorties.put(noms, s);
    }

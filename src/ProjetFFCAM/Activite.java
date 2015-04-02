@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Activite implements Serializable {
     private String nomAct;
     HashSet<CAF> lesClubs;
-
+    
     public Activite(String nomAct) {
         setNomAct(nomAct);
         lesClubs = new HashSet<>();

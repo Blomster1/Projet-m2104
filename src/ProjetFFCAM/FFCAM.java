@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -104,7 +105,6 @@ public void afficheInfosAct(){
     CLUBS --------------------------------------
 */
 private CAF getClub(String nom){
-   
 	return getClubs().get(nom);
 }
 //retourne le club à partir de son nom
@@ -230,12 +230,50 @@ public void nouvelleActivite(){
         {
             System.out.println("\nUne activite de même nom existe déjà\n");
         }
-//        else {
-//            System.out.println("\nUne activite de même nom existe déjà\n");
-//        }    
+
 
 }
-//procédure de création d'une nouvelle activitée.
+
+//--------clubs
+public void nouvelleSortieClub() {
+//la procédure doit créer une sortie pour un club CAF.
+    Scanner sc = new Scanner (System.in);
+    String nomClub;
+    String nomso;
+    Activite act;
+    Sortie sort;
+//    int annee;
+//    int mois;
+//    int jour;
+    GregorianCalendar da = new GregorianCalendar();
+    double pn;
+    
+    System.out.println("Entrez le nom du club dans lequel vous voulez insérer l'activitee : ");
+    nomClub = sc.nextLine();
+    //si le club existe, on procède à la création. 
+    if (this.getClub(nomClub) != null) {
+        System.out.println("\nCréation d'une nouvelle sortie pour le club " + nomClub);
+        System.out.println("Nom de la sortie : ");
+        nomso = sc.nextLine();
+        System.out.println("prix de nuité : ");
+        pn = sc.nextInt();
+        System.out.println("date de l'activité :  ");  
+        //pour le moment je vais en créer une en dure. 
+        da = new GregorianCalendar(2015,2,15);
+        System.out.println(da.toString());
+        //création de l'activité : 
+        act = new Activite(nomso);
+        //appel du constructeur :
+        sort = new Sortie(nomso, da,act, pn, this.getClub(nomClub));
+        //ajouter la sortie au club
+        this.getClub(nomClub).ajouterSortie(nomso, da, act, pn, this.getClub(nomClub));
+    }
+    //sinon on met un message d'erreur.
+    else {
+        System.out.println("ERREUR : Le club de ce nom n'existe pas!");
+    }
+    
+}
 
 public void afficheInfos(){ 
     CAF caf;
