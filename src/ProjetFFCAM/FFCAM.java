@@ -157,6 +157,7 @@ private void addActivite(Activite a, String s){
 private void addMoniteur(Moniteur m, Integer num) {
 //ajoute dans le hashmap le moniteur 
     moniteurs.put(num, m);
+    this.genereNumMonit();
 }
 
 public void nouveauMoniteur() {

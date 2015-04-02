@@ -15,6 +15,8 @@ public class MenuFFCAM {
 	    	FFCAM ff = new FFCAM();
 //                //ajout d'un moniteur dans le ffcam
                 ff.nouveauMoniteur();
+                ff.nouveauMoniteur();
+
 			int choix;
 			do {
                             
