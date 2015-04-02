@@ -241,7 +241,7 @@ public void nouvelleSortieClub() {
     Scanner sc = new Scanner (System.in);
     String nomClub;
     String nomso;
-    Activite act;
+    String nomact;
     Sortie sort;
 //    int annee;
 //    int mois;
@@ -253,21 +253,24 @@ public void nouvelleSortieClub() {
     nomClub = sc.nextLine();
     //si le club existe, on procède à la création. 
     if (this.getClub(nomClub) != null) {
-        System.out.println("\nCréation d'une nouvelle sortie pour le club " + nomClub);
-        System.out.println("Nom de la sortie : ");
-        nomso = sc.nextLine();
-        System.out.println("prix de nuité : ");
-        pn = sc.nextInt();
-        System.out.println("date de l'activité :  ");  
-        //pour le moment je vais en créer une en dure. 
-        da = new GregorianCalendar(2015,2,15);
-        System.out.println(da.toString());
-        //création de l'activité : 
-        act = new Activite(nomso);
-        //appel du constructeur :
-        sort = new Sortie(nomso, da,act, pn, this.getClub(nomClub));
-        //ajouter la sortie au club
-        this.getClub(nomClub).ajouterSortie(nomso, da, act, pn, this.getClub(nomClub));
+        System.out.println("Nom de l'activité de la sortie : ");
+        nomact = sc.nextLine();
+        if(this.getActivite(nomact) != null){
+            System.out.println("\nCréation d'une nouvelle sortie pour le club " + nomClub);
+            System.out.println("Nom de la sortie : ");
+            nomso = sc.nextLine();
+            System.out.println("prix de nuité : ");
+            pn = sc.nextInt();
+            System.out.println("date de la sortie :  ");  
+            //pour le moment je vais en créer une en dure.
+            da = new GregorianCalendar(2015,2,15);
+            //Je teste d'en fair une en dynamique gros
+
+            //appel du constructeur :
+            sort = new Sortie(nomso, da,this.getActivite(nomact), pn, this.getClub(nomClub));
+            //ajouter la sortie au club
+            this.getClub(nomClub).ajouterSortie(nomso, da, this.getActivite(nomact), pn, this.getClub(nomClub));
+        }
     }
     //sinon on met un message d'erreur.
     else {
