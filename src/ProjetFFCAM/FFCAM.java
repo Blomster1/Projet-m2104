@@ -248,28 +248,37 @@ public void nouvelleSortieClub() {
 //    int jour;
     GregorianCalendar da = new GregorianCalendar();
     double pn;
+    CAF c;
+    Activite act;
     
     System.out.println("Entrez le nom du club dans lequel vous voulez insérer l'activitee : ");
     nomClub = sc.nextLine();
     //si le club existe, on procède à la création. 
     if (this.getClub(nomClub) != null) {
+        c = this.getClub(nomClub);
         System.out.println("Nom de l'activité de la sortie : ");
         nomact = sc.nextLine();
+        //si l'activitée existe dans le hashmap de ffcam
         if(this.getActivite(nomact) != null){
+            act = this.getActivite(nomact);
             System.out.println("\nCréation d'une nouvelle sortie pour le club " + nomClub);
             System.out.println("Nom de la sortie : ");
             nomso = sc.nextLine();
+            
+            //la sortie = une sortie du hashmap "sorties" de club
+            sort = c.getSortie(nomso);
+
             System.out.println("prix de nuité : ");
             pn = sc.nextInt();
-            System.out.println("date de la sortie :  ");  
+            System.out.println("date de la sortie :  ");
             //pour le moment je vais en créer une en dure.
             da = new GregorianCalendar(2015,2,15);
-            //Je teste d'en fair une en dynamique gros
+            c.ajouterSortie(nomso,da,act,pn);
+        }
 
-            //appel du constructeur :
-            sort = new Sortie(nomso, da,this.getActivite(nomact), pn, this.getClub(nomClub));
-            //ajouter la sortie au club
-            this.getClub(nomClub).ajouterSortie(nomso, da, this.getActivite(nomact), pn, this.getClub(nomClub));
+        
+        else {
+            System.out.println("ERREUR : L'activitee n'existe pas");
         }
     }
     //sinon on met un message d'erreur.
