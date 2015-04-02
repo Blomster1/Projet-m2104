@@ -154,6 +154,10 @@ private void addActivite(Activite a, String s){
 
 //---------------------------travail sur moniteur
 
+private void addMoniteur(Moniteur m, Integer num) {
+//ajoute dans le hashmap le moniteur 
+    moniteurs.put(num, m);
+}
 
 public void nouveauMoniteur() {
 //ajoute un nouveau moniteur au hashmap moniteurs suite à une demande.
@@ -171,7 +175,9 @@ public void nouveauMoniteur() {
     diplome = sc.nextLine();
     
     Moniteur monit = new Moniteur(nom,prenom,this.getNumDerMonit(),diplome);
-    moniteurs.put(this.getNumDerMonit(), monit);
+    System.out.println("Nouveau moniteur au numéro : " + monit.getNumero());
+
+    this.addMoniteur(monit, monit.getNumero());
 }
 public void ajouterEncadrant() {
 //ajoute l'encadrant sur une sortie
@@ -184,7 +190,10 @@ private Moniteur getMoniteur(Integer num) {
     return this.getMoniteurs().get(num);
 }
 
-private void genereNumMonit() {
+private int genereNumMonit() {
+    //incrémente de 1
+    this.setNumDerMonit(this.getNumDerMonit()+1);
+    return this.getNumDerMonit()+1;
 }
 
 
@@ -193,6 +202,14 @@ public int getNumDerMonit() {
     return numDerMonit;
 }
 
+private void setNumDerMonit(int i) {
+    //pour l'incrémentation
+    numDerMonit = i;
+}
+
+private void setMoniteurs (HashMap<Integer,Moniteur> monits) {
+    moniteurs = monits;
+}
 //----------------Activitees
 public void nouvelleActivite(){
         String nomA;

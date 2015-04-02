@@ -7,10 +7,13 @@ Terminer les fonctionnalité de la seance 1
 Procédure nouveauMoniteur : OK
 fonction getMoniteurs : OK
 fonction getNumDernierMonit : OK 
-fonction getMoniteur : 
-procédure genereNumMonit : 
+fonction getMoniteur : OK
+procédure genereNumMonit : OK
 procédure ajouterEncadrant : 
-
+procédure setNumDerMonit : OK
+procédure setMoniteurs : OK 
+procédure addMoniteur : OK
+procédure setMoniteurs : OK 
 ---------------
 Travaux IUT2 Info
 HANRIAT Calliste / TABITA Yévic
