@@ -1,8 +1,11 @@
 Projet Créer avec Netbeans
 Toutes les classes se touvent dans src/projet/m2104
 
-Objectif avant Jeudi:
-Terminer les fonctionnalité de la seance 1
+Objectif avant Jeudi 02/04:
+Terminer les fonctionnalité de la seance 1 == OK 
+
+Objectif avant vendredi 03/04 :
+terminer les fonctionnélités de la seance 2 
 
 Procédure nouveauMoniteur : OK
 fonction getMoniteurs : OK

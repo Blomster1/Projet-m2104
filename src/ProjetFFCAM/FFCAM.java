@@ -166,7 +166,7 @@ public void nouveauMoniteur() {
     String prenom;
     String diplome;
     
-    System.out.println("Ajout d'un moniteur : ");
+    System.out.println("\tAjout d'un moniteur : ");
     System.out.print("Nom : ");
     nom = sc.nextLine();
     System.out.print("Prenom : ");
@@ -272,10 +272,10 @@ public void afficheInfos(){
      * Création d'une nouvelle sérialisation
      */
     public void newDB() {
-	//this.setNumDerMonit(0);
+	this.setNumDerMonit(0);
 	this.setClubs(new HashMap<String, CAF>());
 	this.setActivites(new HashMap<String, Activite>());
-	//this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
+	this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
     }
     
    /**
@@ -293,10 +293,10 @@ public void afficheInfos(){
             fos = new FileOutputStream(file);
             oos = new ObjectOutputStream(fos);
 
-            //oos.writeInt(numDerMonit);
+            oos.writeInt(numDerMonit);
             oos.writeObject(lesClubs);
             oos.writeObject(lesActivites);
-            //oos.writeObject(lesMoniteurs);
+            oos.writeObject(moniteurs);
             
         }
         catch (Exception e) {
@@ -332,10 +332,10 @@ public void afficheInfos(){
             try {
                 fis = new FileInputStream(file);
                 ois = new ObjectInputStream(fis);
-               // numDerMonit = ois.readInt();
+                numDerMonit = ois.readInt();
                 lesClubs = (HashMap<String, CAF>) ois.readObject();
                 lesActivites = (HashMap<String, Activite>) ois.readObject();
-                //lesMoniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
+                moniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
             }             
             catch(Exception e) {
                 System.out.println("LOAD" + e);
@@ -355,9 +355,6 @@ public void afficheInfos(){
         } else { success = false; }
         return success;
     }
-
-    
-
 }
 
 

@@ -13,7 +13,8 @@ public class MenuFFCAM {
 	        	
                //création d'un FFCAM ici
 	    	FFCAM ff = new FFCAM();
-	    	
+//                //ajout d'un moniteur dans le ffcam
+                ff.nouveauMoniteur();
 			int choix;
 			do {
                             
@@ -61,6 +62,9 @@ public class MenuFFCAM {
 				default:
 					break;
 				} // switch.newDB(
+                        
+                        
 			} while (choix != 0);	
+                        
 	    }
 }
