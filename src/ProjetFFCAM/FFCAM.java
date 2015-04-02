@@ -1,6 +1,5 @@
 package ProjetFFCAM;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -246,7 +245,7 @@ public void nouvelleSortieClub() {
 //    int annee;
 //    int mois;
 //    int jour;
-    GregorianCalendar da;
+    GregorianCalendar da = new GregorianCalendar();
     double pn;
     CAF c;
     Activite act;
@@ -407,7 +406,6 @@ public void afficheInfos(){
         return success;
     }
 }
-
 
 
 
