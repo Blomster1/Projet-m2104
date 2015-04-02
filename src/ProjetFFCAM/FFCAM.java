@@ -194,7 +194,7 @@ private Moniteur getMoniteur(Integer num) {
 private int genereNumMonit() {
     //incrémente de 1
     this.setNumDerMonit(this.getNumDerMonit()+1);
-    return this.getNumDerMonit()+1;
+    return this.getNumDerMonit();
 }
 
 
@@ -314,7 +314,7 @@ public void afficheInfos(){
 	this.setNumDerMonit(0);
 	this.setClubs(new HashMap<String, CAF>());
 	this.setActivites(new HashMap<String, Activite>());
-	this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
+	//this.setMoniteurs(new HashMap<Integer, Moniteur>()); 
     }
     
    /**
@@ -335,7 +335,7 @@ public void afficheInfos(){
             oos.writeInt(numDerMonit);
             oos.writeObject(lesClubs);
             oos.writeObject(lesActivites);
-            oos.writeObject(moniteurs);
+           //oos.writeObject(moniteurs);
             
         }
         catch (Exception e) {
@@ -374,7 +374,7 @@ public void afficheInfos(){
                 numDerMonit = ois.readInt();
                 lesClubs = (HashMap<String, CAF>) ois.readObject();
                 lesActivites = (HashMap<String, Activite>) ois.readObject();
-                moniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
+                //moniteurs = (HashMap<Integer, Moniteur>) ois.readObject();
             }             
             catch(Exception e) {
                 System.out.println("LOAD" + e);

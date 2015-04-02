@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author hanriaca
  */
-class Sortie {
+class Sortie{
     HashSet<Adherent> lesParticipants;
     HashSet<Moniteur> lesMoniteurs;
     private String nomSortie;
