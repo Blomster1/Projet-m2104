@@ -246,7 +246,7 @@ public void nouvelleSortieClub() {
 //    int annee;
 //    int mois;
 //    int jour;
-    GregorianCalendar da = new GregorianCalendar();
+    GregorianCalendar da;
     double pn;
     CAF c;
     Activite act;
