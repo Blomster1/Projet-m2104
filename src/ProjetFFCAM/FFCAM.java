@@ -251,11 +251,14 @@ public void nouvelleSortieClub() {
     
     System.out.println("Entrez le nom du club dans lequel vous voulez insérer l'activitee : ");
     nomClub = sc.nextLine();
-    //si le club existe, on procède à la création. 
+    
     if (this.getClub(nomClub) != null) {
+    //Verification de l'existance du club
         System.out.println("Nom de l'activité de la sortie : ");
         nomact = sc.nextLine();
-        if(this.getActivite(nomact) != null){
+        if(this.getClub(nomClub).getActivites().contains(this.getActivite(nomact))){
+           //je recupere le club.je recupere son tableau d'activité.je verifi qu'il contient l'activité saisie 
+        //Verification de l'existance de l'activité
             System.out.println("\nCréation d'une nouvelle sortie pour le club " + nomClub);
             System.out.println("Nom de la sortie : ");
             nomso = sc.nextLine();
@@ -264,14 +267,16 @@ public void nouvelleSortieClub() {
             System.out.println("date de la sortie :  ");  
             //pour le moment je vais en créer une en dure.
             da = new GregorianCalendar(2015,2,15);
-            //Je teste d'en fair une en dynamique gros
+            //Je teste d'en faire une en dynamique gros
 
             //appel du constructeur :
             sort = new Sortie(nomso, da,this.getActivite(nomact), pn, this.getClub(nomClub));
             //ajouter la sortie au club
             this.getClub(nomClub).ajouterSortie(nomso, da, this.getActivite(nomact), pn, this.getClub(nomClub));
+        } else {
+            System.out.println("ERREUR : l'activité n'existe pas.");
         }
-    }
+    } 
     //sinon on met un message d'erreur.
     else {
         System.out.println("ERREUR : Le club de ce nom n'existe pas!");
