@@ -14,8 +14,7 @@ public class MenuFFCAM {
                //création d'un FFCAM ici
 	    	FFCAM ff = new FFCAM();
 //                //ajout d'un moniteur dans le ffcam
-                ff.nouveauMoniteur();
-                ff.nouveauMoniteur();
+
 
 			int choix;
 			do {
@@ -28,6 +27,9 @@ public class MenuFFCAM {
 			System.out.println("      * 3- Ajouter une activité proposée par un CAF            *");
 			System.out.println("      * 4- Consulter les informations sur un CAF               *");
 			System.out.println("      * 5- Consulter toutes les informations sur une activité  *");
+                        System.out.println("      * 6- Ajouter un moniteur                                 *");
+                        System.out.println("      * 7- Ajouter une sortie a un CAF local                   *");
+                        
 			
                         System.out.println("****************************************************************");
 			System.out.println("      * 0- Quitter                                             *");
@@ -59,6 +61,16 @@ public class MenuFFCAM {
                                 case 5: {
                                         if (! ff.loadDB()) { ff.newDB();}
                                         ff.afficheInfosAct();
+                                        ff.updateDB();
+                                        break; }
+                                case 6: {
+                                        if (! ff.loadDB()) { ff.newDB();}
+                                        ff.nouveauMoniteur();
+                                        ff.updateDB();
+                                        break; }
+                                case 7: {
+                                        if (! ff.loadDB()) { ff.newDB();}
+                                        ff.nouvelleSortieClub();
                                         ff.updateDB();
                                         break; }
 				default:
