@@ -293,10 +293,13 @@ public void afficheInfos(){
     Scanner sc = new Scanner(System.in);
     System.out.println("Nom du club : ");
     nomClub=sc.nextLine();
-    if(lesClubs.get(nomClub)!=null){
+    if(lesClubs.get(nomClub)!=null){        
         caf = lesClubs.get(nomClub);
+        System.out.print("Nom du club : ");
         System.out.println(caf.getNomCAF());
+        System.out.print("Adresse : ");
         System.out.println(caf.getAdresse());
+        System.out.print("Site internet : ");
         System.out.println(caf.getSite());
         System.out.println("Liste des activités proposées par le club :");
         for(Activite act : caf.getActivites()){
