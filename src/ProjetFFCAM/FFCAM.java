@@ -242,17 +242,17 @@ public void nouvelleSortieClub() {
     String nomso;
     String nomact;
     Sortie sort;
-//    int annee;
-//    int mois;
-//    int jour;
-    GregorianCalendar da = new GregorianCalendar();
+    int annee;
+    int mois;
+    int jour;
+    GregorianCalendar da;
     double pn;
     CAF c;
     Activite act;
     
     System.out.println("Entrez le nom du club dans lequel vous voulez insérer l'activitee : ");
     nomClub = sc.nextLine();
-    //si le club existe, on procède à la création. 
+    //si le club existe, on fait saisir le nom de l'activitée. 
     if (this.getClub(nomClub) != null) {
         c = this.getClub(nomClub);
         System.out.println("Nom de l'activité de la sortie : ");
@@ -267,15 +267,25 @@ public void nouvelleSortieClub() {
             //la sortie = une sortie du hashmap "sorties" de club
             sort = c.getSortie(nomso);
 
-            System.out.println("prix de nuité : ");
-            pn = sc.nextInt();
-            System.out.println("date de la sortie :  ");
-            //pour le moment je vais en créer une en dure.
-            da = new GregorianCalendar(2015,2,15);
-            c.ajouterSortie(nomso,da,act,pn);
-        }
+            //si la sortie n'est pas prévue alors saisir la date et le prix.
+            if (sort.getDate()==null) {
+                System.out.println("prix de nuité : ");
+                pn = sc.nextInt();
+                System.out.println("date de la sortie :  ");
+                System.out.print("Jour : ");
+                jour = sc.nextInt();
+                System.out.print("Mois : ");
+                mois = sc.nextInt();
+                System.out.print("Annee : ");
+                annee = sc.nextInt();
+                da = new GregorianCalendar(annee, mois, jour);
+                c.ajouterSortie(nomso,da,act,pn);
+                
+            }
 
-        
+            //pour le moment je vais en créer une en dure.
+            
+        }
         else {
             System.out.println("ERREUR : L'activitee n'existe pas");
         }

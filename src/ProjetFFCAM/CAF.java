@@ -97,8 +97,8 @@ public class CAF implements java.io.Serializable {
    
    //AJOUTER SORTIE
    public void ajouterSortie(String n, GregorianCalendar d, Activite a, double p) {
+        //ajoute la sortie.
        Sortie sort = new Sortie(n,d,a,p,this);
-       //ajoute la sortie.
        
        //si la sortie existe pas, on l'ajoute
        if (this.getSortie(n) == null) {
