@@ -29,7 +29,7 @@ public class MenuFFCAM {
 			System.out.println("      * 5- Consulter toutes les informations sur une activité  *");
                         System.out.println("      * 6- Ajouter un moniteur                                 *");
                         System.out.println("      * 7- Ajouter une sortie a un CAF local                   *");
-                        
+                        System.out.println("      * 8- Inscrire un nouvel Adhérent dans un CAF local       *");
 			
                         System.out.println("****************************************************************");
 			System.out.println("      * 0- Quitter                                             *");
@@ -70,6 +70,10 @@ public class MenuFFCAM {
                                         break; }
                                 case 7: {
                                         ff.nouvelleSortieClub();
+                                        break; }
+                                case 8: {
+                                        ff.ajouterAdherent();
+                                        
                                         break; }
 				default:
 					break;

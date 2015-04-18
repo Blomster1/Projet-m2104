@@ -25,6 +25,8 @@ procédure setMoniteurs : OK
 procédure addMoniteur : OK
 procédure setMoniteurs : OK 
 
+Question 8 traitée. 
+
 En ce qui concerne les activitées 
 _______________________________
 procédure nouvelleSortieClub : OK

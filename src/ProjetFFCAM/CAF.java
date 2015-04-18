@@ -111,4 +111,18 @@ public class CAF implements java.io.Serializable {
    private void addSortie(String noms, Sortie s){
        sorties.put(noms, s);
    }
+
+    public void ajouterAdherent(String num, String nom, String prenom, String adresse) {
+        //le numero d'adherent est composé des 3 premieres lettres du nom du club + le nom + un numéro généré aléatoirment.
+            //on va utiliser subString pour récupérer les 3 premières lettres du nom du CAF.
+        Random r = new Random();
+        num = this.getNomCAF().substring(0, 2) + nom + r.nextInt(10);
+        //on vérifie que l'adhérent n'existe pas.
+        if (this.getAdherent(nom) != null) {
+            System.out.println("ERREUR : L'adherent existe déjà.");
+        }
+        else {
+            this.addAdherent(num, new Adherent(num, nom, prenom, adresse));
+        }
+    }
 }

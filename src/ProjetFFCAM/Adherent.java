@@ -15,15 +15,22 @@ public class Adherent extends Personne {
     private String adresse;
     private double soleNuites = 0;
     HashSet<Sortie> lesSorties;
+
+
+    private String numAdherent;
     
-    public Adherent(String n, String p, String a, double solde) {
+    public Adherent(String num, String n, String p, String a) {
         super(n, p);
         this.setAdresse(a);
-        this.setSoleNuites(solde);
+        this.setNumAdherent(num);
+        //this.setSoleNuites(solde);
         lesSorties = new HashSet<>();
     }
 
     //GETTERS
+    public String getNumAdherent() {
+        return numAdherent;
+    }
     public String getAdresse() {
         return adresse;
     }
@@ -32,6 +39,11 @@ public class Adherent extends Personne {
     }
     
     //SETTERS
+    
+    private void setNumAdherent(String numAdherent) {
+        this.numAdherent = numAdherent;
+    }
+
     private void setAdresse(String adresse) {
         this.adresse = adresse;
     }
