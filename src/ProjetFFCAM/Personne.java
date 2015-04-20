@@ -11,7 +11,9 @@ import java.util.HashSet;
  *
  * @author hanriaca
  */
-public abstract class Personne {
+import java.io.Serializable;
+
+public abstract class Personne implements Serializable {
     private String prenom;
     private String nom;
     private HashSet<Sortie> sorties;

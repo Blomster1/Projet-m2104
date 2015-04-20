@@ -80,7 +80,7 @@ public class MenuFFCAM {
                                         break; }
 				default:
 					break;
-				} // switch.newDB(
+				} // switch
 			} while (choix != 0);	
                         
 	    }

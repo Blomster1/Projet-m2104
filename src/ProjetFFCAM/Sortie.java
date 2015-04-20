@@ -11,6 +11,8 @@ import java.util.*;
  *
  * @author hanriaca
  */
+
+
 class Sortie{
     HashSet<Adherent> lesParticipants;
     HashSet<Moniteur> lesMoniteurs;

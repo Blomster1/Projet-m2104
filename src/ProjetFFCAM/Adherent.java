@@ -10,7 +10,9 @@ import java.util.HashSet;
  *
  * @author blomster
  */
-public class Adherent extends Personne {
+import java.io.Serializable;
+
+public class Adherent extends Personne implements Serializable {
 
     private String adresse;
     private double soleNuites = 0;

@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author loft-2014
  */
-public class Moniteur extends Personne{
+public class Moniteur extends Personne implements Serializable{
     //déclarations
     
     private String diplome;
