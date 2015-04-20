@@ -78,6 +78,11 @@ public class MenuFFCAM {
                                         ff.nouvelAdherent();
                                         ff.updateDB();
                                         break; }
+                                case 9: {
+                                        if (! ff.loadDB()) { ff.newDB();}
+                                        ff.inscrireAdherentSortie();
+                                        ff.updateDB();
+                                        break; }
 				default:
 					break;
 				} // switch
