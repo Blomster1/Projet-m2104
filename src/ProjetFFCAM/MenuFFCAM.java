@@ -30,7 +30,7 @@ public class MenuFFCAM {
                         System.out.println("      * 6- Ajouter un moniteur                                 *");
                         System.out.println("      * 7- Ajouter une sortie a un CAF local                   *");
                         System.out.println("      * 8- Inscrire un nouvel Adhérent dans un CAF local       *");
-			
+                        System.out.println("      * 9- Inscrire un Adherent à une sortie                   *");
                         System.out.println("****************************************************************");
 			System.out.println("      * 0- Quitter                                             *");
 			System.out.println("****************************************************************");
@@ -75,7 +75,7 @@ public class MenuFFCAM {
                                         break; }
                                 case 8: {
                                         if (! ff.loadDB()) { ff.newDB();}
-                                        ff.ajouterAdherent();
+                                        ff.nouvelAdherent();
                                         ff.updateDB();
                                         break; }
 				default:

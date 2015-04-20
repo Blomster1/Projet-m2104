@@ -6,8 +6,8 @@
 
 package ProjetFFCAM;
 
-import java.util.HashSet;
 import java.io.Serializable;
+import java.util.HashSet;
 /**
  *
  * @author tabitay
@@ -15,29 +15,46 @@ import java.io.Serializable;
 public class Activite implements Serializable {
     private String nomAct;
     HashSet<CAF> lesClubs;
+    HashSet <Sortie> sorties;
     
     public Activite(String nomAct) {
         setNomAct(nomAct);
         lesClubs = new HashSet<>();
+        sorties = new HashSet<>();
     }
 
+    //GETTERS
+    public HashSet<Sortie> getSorties() {
+        return sorties;
+    }
     public String getNomAct() {
         return nomAct;
     }
-
-    private void setNomAct(String n) {
-        this.nomAct = n;
-    }
-
     public HashSet<CAF> getLesClubs() {
         return lesClubs;
     }
     
-
-    public void setLesClubs(HashSet<CAF> lesClubs) {
+    
+    
+    //SETTERS
+    private void setNomAct(String n) {
+        this.nomAct = n;
+    }
+    private void setSorties(HashSet<Sortie> sorties) {
+        this.sorties = sorties;
+    }
+    
+    private void setLesClubs(HashSet<CAF> lesClubs) {
         this.lesClubs = lesClubs;
     }
     
+
+    //AUTRES
+    private void addClub(CAF cl){
+        this.getLesClubs().add(cl);
+    }
+
+
     public boolean ajouterClub(CAF cl){
         
         if(!this.getLesClubs().contains(cl)){
@@ -48,9 +65,4 @@ public class Activite implements Serializable {
             return false;
         }
     }
-    
-    private void addClub(CAF cl){
-        this.getLesClubs().add(cl);
-    }
-    
 }

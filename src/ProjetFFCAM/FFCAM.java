@@ -296,11 +296,35 @@ public void nouvelleSortieClub() {
 
 public void inscrireAdherentSortie() {
     //inscrit un adhérent dans une activitée d'un CAF
-    //demande le nom du club dans lequel nous voulons ajouter l'adherent.
-
+    String nomC;
+    String nomS;
+    String nomA;
+    Scanner sc = new Scanner(System.in);
+    //demande le nom d'un club dans lequel nous voulons ajouter l'adherent.
+    System.out.print("Entrez le nom de l'activitée ou vous voulez inscrire l'adherent : ");
+    nomC = sc.nextLine();
+    //vérification de l'existence d'un club.
+    if(this.getClub(nomC)!=null) {
+        //demande le nom d'une sortie
+        System.out.print("Entrez le nom de la sortie : ");
+        nomS = sc.nextLine();
+        //verification pour savoir si la sortie existe : 
+        if(this.getClub(nomC).getSortie(nomS) != null) {
+            System.out.print("Entrez le nom de l'Adherent : ");
+            //verifie si l'adherent existe, et si il n'est pas deja inscrit à une activitee à la même date
+            if(this.getClub(nomS).getAdherent(nomA))
+            this.getClub(nomC).getSortie(nomS).ajouterParticipants(null);
+        }
+        else {
+            System.out.println("ERREUR : La sortie existe pas.");
+        }
+    }
+    else {
+        System.out.println("ERREUR : l'activité demandée n'existe pas.");
+    }
 }
 
-public void ajouterAdherent() {
+public void nouvelAdherent() {
     //ajoute un adherent dans un CAF , c'est à dire, dans le HashMap du CAF.
     
     String nomClub;
