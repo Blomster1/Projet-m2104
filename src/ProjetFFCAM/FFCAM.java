@@ -295,13 +295,13 @@ public void nouvelleSortieClub() {
 }
 
 public void inscrireAdherentSortie() {
-    //inscrit un adhérent dans une activitée d'un CAF
+    //inscrit un adhérent dans une sortie d'un CAF
     String nomC;
     String nomS;
     String nomA;
     Scanner sc = new Scanner(System.in);
     //demande le nom d'un club dans lequel nous voulons ajouter l'adherent.
-    System.out.print("Entrez le nom de l'activitée ou vous voulez inscrire l'adherent : ");
+    System.out.print("Entrez le nom du club ou vous voulez inscrire l'adherent : ");
     nomC = sc.nextLine();
     //vérification de l'existence d'un club.
     if(this.getClub(nomC)!=null) {
@@ -313,7 +313,7 @@ public void inscrireAdherentSortie() {
             //demande du nom de l'Adherent
             System.out.print("Entrez le nom de l'Adherent : ");
             nomA = sc.nextLine();
-            //verifie si l'adherent existe, et si il n'est pas deja inscrit à une activitee à la même date
+            //verifie si l'adherent existe
             if((this.getClub(nomC).getAdherent(nomA) != null)) {
                 //appel de ajouterParticipant pour la sortie de nom nomS
                 this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(nomA));
@@ -332,6 +332,45 @@ public void inscrireAdherentSortie() {
     }
 }
 
+public void ajouterEncadrantSortie() {
+    //inscrit un encadrant dans une sortie d'un CAF
+    String nomC;
+    String nomS;
+    
+    
+    int numMonit;
+    Scanner sc = new Scanner(System.in);
+    //demande le nom d'un club dans lequel nous voulons ajouter l'Encadrant.
+    System.out.print("Entrez le nom du club ou vous voulez inscrire l'encadrant : ");
+    nomC = sc.nextLine();
+    //vérification de l'existence d'un club.
+    if(this.getClub(nomC)!=null) {
+        //demande le nom d'une sortie
+        System.out.print("Entrez le nom de la sortie : ");
+        nomS = sc.nextLine();
+        //verification de l'existence d'une sortie : 
+        if(this.getClub(nomC).getSortie(nomS) != null) {
+            //demande du numero du moniteur
+            System.out.print("Entrez le numero du moniteur : ");
+            numMonit = sc.nextInt();
+            //verifie si l'encadrant existe
+            if(this.getMoniteur(numMonit) != null) {
+                //appel de ajouterParticipant pour la sortie de nom nomS
+                this.getClub(nomC).getSortie(nomS).ajouterEncadrant(getMoniteur(numMonit));
+            }
+            else {
+                System.out.println("ERREUR : la sortie n'existe pas.");
+            }
+            
+        }
+        else {
+            System.out.println("ERREUR : La sortie existe pas.");
+        }
+    }
+    else {
+        System.out.println("ERREUR : l'activité demandée n'existe pas.");
+    }    
+}
 public void nouvelAdherent() {
     //ajoute un adherent dans un CAF , c'est à dire, dans le HashMap du CAF.
     
