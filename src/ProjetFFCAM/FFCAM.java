@@ -319,7 +319,7 @@ public void inscrireAdherentSortie() {
                 this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(nomA));
             }
             else {
-                System.out.println("ERREUR : la sortie n'existe pas.");
+                System.out.println("ERREUR : l'adherent n'existe pas.");
             }
             
         }
@@ -353,15 +353,16 @@ public void ajouterEncadrantSortie() {
             //demande du numero du moniteur
             System.out.print("Entrez le numero du moniteur : ");
             numMonit = sc.nextInt();
-            //verifie si l'encadrant existe
-            if(this.getMoniteur(numMonit) != null) {
-                //appel de ajouterParticipant pour la sortie de nom nomS
-                this.getClub(nomC).getSortie(nomS).ajouterEncadrant(getMoniteur(numMonit));
+            //verifie si l'encadrant existe et qu'il n'est pas déjà dans cette sortie et également si il n'y a pas de sortie à la même date pour ce moniteur
+            if(this.getMoniteur(numMonit) != null 
+                    && !(this.getClub(nomC).getSortie(nomS).getLesMoniteurs().contains(this.getMoniteur(numMonit)))  //contient déjà le moniteur ?
+                    &&   (this.getMoniteur(numMonit).getSorties())   { //une sortie à la même date ? {
+                //appel de ajouterEncadrant pour la sortie de nom nomS
+                this.getClub(nomC).getSortie(nomS).ajouterEncadrant(this.getMoniteur(numMonit));
             }
             else {
-                System.out.println("ERREUR : la sortie n'existe pas.");
+                System.out.println("ERREUR : l'encadrant n'existe pas.");
             }
-            
         }
         else {
             System.out.println("ERREUR : La sortie existe pas.");
