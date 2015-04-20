@@ -13,13 +13,14 @@ public class CAF implements java.io.Serializable {
     private String site;
     private HashSet<Activite> activitesDuClub;
     private HashMap<String, Sortie> sorties;
-    private HashMap<String, Adherent> adherents;
+    private HashMap<String, Adherent> adherents ;
 
     //Constructeur
     public CAF(String n, String a, String s) {
             this.setNomCAF(n);
             this.setAdresse(a);
             this.setSite(s);
+            adherents = new HashMap<>();
             activitesDuClub = new HashSet<>();
             sorties = new HashMap<>();
     }
@@ -41,7 +42,7 @@ public class CAF implements java.io.Serializable {
         return sorties;
     }
     public HashMap<String, Adherent> getAdherents() {
-        return adherents;
+        return this.adherents;
     }
     public Sortie getSortie(String nomS){
         //Retourne une sortie en fonction de son nom
@@ -115,13 +116,13 @@ public class CAF implements java.io.Serializable {
     public void ajouterAdherent(String num, String nom, String prenom, String adresse) {
         //le numero d'adherent est composé des 3 premieres lettres du nom du club + le nom + un numéro généré aléatoirment.
             //on va utiliser subString pour récupérer les 3 premières lettres du nom du CAF.
-        Random r = new Random();
-        num = this.getNomCAF().substring(0, 2) + nom + r.nextInt(10);
+        //Random r = new Random();
+        num = "e";//this.getNomCAF().substring(0, 2) + nom + r.nextInt(10);
         //on vérifie que l'adhérent n'existe pas.
-        if (this.getAdherent(nom) != null) {
-            System.out.println("ERREUR : L'adherent existe déjà.");
+        if (this.getAdherent(nom) != null) { 
+            System.out.println("ERREUR : L'adherent existe déjà.");            
         }
-        else {
+        else {            
             this.addAdherent(num, new Adherent(num, nom, prenom, adresse));
         }
     }

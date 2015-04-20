@@ -64,22 +64,23 @@ public class MenuFFCAM {
                                         ff.updateDB();
                                         break; }
                                 case 6: {
-                                        //if (! ff.loadDB()) { ff.newDB();}
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.nouveauMoniteur();
-                                        //ff.updateDB();
+                                        ff.updateDB();
                                         break; }
                                 case 7: {
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.nouvelleSortieClub();
+                                        ff.updateDB();
                                         break; }
                                 case 8: {
+                                        if (! ff.loadDB()) { ff.newDB();}
                                         ff.ajouterAdherent();
-                                        
+                                        ff.updateDB();
                                         break; }
 				default:
 					break;
 				} // switch.newDB(
-                        
-                        
 			} while (choix != 0);	
                         
 	    }
