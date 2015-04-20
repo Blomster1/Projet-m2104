@@ -308,12 +308,20 @@ public void inscrireAdherentSortie() {
         //demande le nom d'une sortie
         System.out.print("Entrez le nom de la sortie : ");
         nomS = sc.nextLine();
-        //verification pour savoir si la sortie existe : 
+        //verification de l'existence d'une sortie : 
         if(this.getClub(nomC).getSortie(nomS) != null) {
+            //demande du nom de l'Adherent
             System.out.print("Entrez le nom de l'Adherent : ");
+            nomA = sc.nextLine();
             //verifie si l'adherent existe, et si il n'est pas deja inscrit à une activitee à la même date
-            if(this.getClub(nomS).getAdherent(nomA))
-            this.getClub(nomC).getSortie(nomS).ajouterParticipants(null);
+            if((this.getClub(nomC).getAdherent(nomA) != null)) {
+                //appel de ajouterParticipant pour la sortie de nom nomS
+                this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(nomA));
+            }
+            else {
+                System.out.println("ERREUR : la sortie n'existe pas.");
+            }
+            
         }
         else {
             System.out.println("ERREUR : La sortie existe pas.");
