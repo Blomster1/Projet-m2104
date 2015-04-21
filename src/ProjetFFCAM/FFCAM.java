@@ -359,13 +359,15 @@ public void ajouterEncadrantSortie() {
             //verifie si l'encadrant existe et qu'il n'est pas déjà dans cette sortie et également si il n'y a pas de sortie à la même date pour ce moniteur
             if(this.getMoniteur(numMonit) != null 
                     && !(this.getClub(nomC).getSortie(nomS).getLesMoniteurs().contains(this.getMoniteur(numMonit)))  //contient déjà le moniteur ?
-                    &&  !(this.getMoniteur(numMonit).getSorties().contains(this.getClub(nomC).getSortie(nomS).getDate())))   { //une sortie à la même date ? {
-                //appel de ajouterEncadrant pour la sortie de nom nomS
+                    && !(this.getMoniteur(numMonit).getSorties().contains(this.getClub(nomC).getSortie(nomS))))  { //une sortie à la même date ? {
+                //appel de ajouterEncadrant pour la sortie de nom nomS                
                 this.getClub(nomC).getSortie(nomS).ajouterEncadrant(this.getMoniteur(numMonit));
+                //ajout de la sortie dans le hashSet du moniteur
+               
                 this.getMoniteur(numMonit).ajouterSortie(this.getClub(nomC).getSortie(nomS));
             }
             else {
-                System.out.println("ERREUR : l'encadrant n'existe pas.");
+                System.out.println("ERREUR : l'encadrant n'existe pas ou alors il y a déjà une sortie à la même date ou alors il est déjà inscit à cette sortie.");
             }
         }
         else {
