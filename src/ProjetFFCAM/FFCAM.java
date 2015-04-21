@@ -265,10 +265,10 @@ public void nouvelleSortieClub() {
             nomso = sc.nextLine();
             
             //la sortie = une sortie du hashmap "sorties" de club
-            sort = c.getSortie(nomso);
+            //sort = c.getSortie(nomso);
 
             //si la sortie n'est pas prévue alors saisir la date et le prix.
-            if (sort.getDate()==null) {
+            if (this.getClub(nomClub).getSortie(nomso)==null) {
                 System.out.println("prix de nuité : ");
                 pn = sc.nextInt();
                 System.out.println("date de la sortie :  ");
@@ -281,7 +281,9 @@ public void nouvelleSortieClub() {
                 da = new GregorianCalendar(annee, mois, jour);
                 c.ajouterSortie(nomso,da,act,pn);
                 
-            }            
+            } else {
+                 System.out.println("ERREUR : la sortie existe deja");
+            }           
         }
         else {
             System.out.println("ERREUR : L'activitee n'existe pas");
@@ -317,6 +319,7 @@ public void inscrireAdherentSortie() {
             if((this.getClub(nomC).getAdherent(nomA) != null)) {
                 //appel de ajouterParticipant pour la sortie de nom nomS
                 this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(nomA));
+                this.getClub(nomC).getAdherent(nomA).ajouterSortie(this.getClub(nomC).getSortie(nomS));
             }
             else {
                 System.out.println("ERREUR : l'adherent n'existe pas.");
@@ -356,9 +359,10 @@ public void ajouterEncadrantSortie() {
             //verifie si l'encadrant existe et qu'il n'est pas déjà dans cette sortie et également si il n'y a pas de sortie à la même date pour ce moniteur
             if(this.getMoniteur(numMonit) != null 
                     && !(this.getClub(nomC).getSortie(nomS).getLesMoniteurs().contains(this.getMoniteur(numMonit)))  //contient déjà le moniteur ?
-                    &&   (this.getMoniteur(numMonit).getSorties())   { //une sortie à la même date ? {
+                    &&  !(this.getMoniteur(numMonit).getSorties().contains(this.getClub(nomC).getSortie(nomS).getDate())))   { //une sortie à la même date ? {
                 //appel de ajouterEncadrant pour la sortie de nom nomS
                 this.getClub(nomC).getSortie(nomS).ajouterEncadrant(this.getMoniteur(numMonit));
+                this.getMoniteur(numMonit).ajouterSortie(this.getClub(nomC).getSortie(nomS));
             }
             else {
                 System.out.println("ERREUR : l'encadrant n'existe pas.");
@@ -369,7 +373,7 @@ public void ajouterEncadrantSortie() {
         }
     }
     else {
-        System.out.println("ERREUR : l'activité demandée n'existe pas.");
+        System.out.println("ERREUR : le club demandé n'existe pas.");
     }    
 }
 public void nouvelAdherent() {

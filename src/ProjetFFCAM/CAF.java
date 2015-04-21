@@ -6,7 +6,7 @@ package ProjetFFCAM;
 import java.io.*; import java.util.*;
 import java.io.Serializable;
 
-public class CAF implements java.io.Serializable {
+public class CAF implements Serializable {
 	
     private String nomCAF;
     private String adresse;
@@ -38,7 +38,7 @@ public class CAF implements java.io.Serializable {
     public HashSet<Activite> getActivites() {
         return activitesDuClub;
     }
-    public HashMap<String, Sortie> getSorties() {
+    private HashMap<String, Sortie> getSorties() {
         return sorties;
     }
     public HashMap<String, Adherent> getAdherents() {

@@ -6,6 +6,7 @@
 
 package ProjetFFCAM;
 
+import java.io.Serializable;
 import java.util.*;
 /**
  *
@@ -13,7 +14,7 @@ import java.util.*;
  */
 
 
-class Sortie{
+class Sortie implements Serializable{
     HashSet<Adherent> lesParticipants;
     HashSet<Moniteur> lesMoniteurs;
     private String nomSortie;

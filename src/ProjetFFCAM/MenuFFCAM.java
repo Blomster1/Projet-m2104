@@ -22,15 +22,16 @@ public class MenuFFCAM {
 			System.out.println("\n****************************************************************");
 			System.out.println("    *  Fédération Francaise des Clubs Alpins et de Montagne    *");
 			System.out.println("****************************************************************");
-			System.out.println("      * 1- Créer un nouveau CAF                                *");
-			System.out.println("      * 2- Créer une nouvelle activité                         *");
-			System.out.println("      * 3- Ajouter une activité proposée par un CAF            *");
-			System.out.println("      * 4- Consulter les informations sur un CAF               *");
-			System.out.println("      * 5- Consulter toutes les informations sur une activité  *");
-                        System.out.println("      * 6- Ajouter un moniteur                                 *");
-                        System.out.println("      * 7- Ajouter une sortie a un CAF local                   *");
-                        System.out.println("      * 8- Inscrire un nouvel Adhérent dans un CAF local       *");
-                        System.out.println("      * 9- Inscrire un Adherent à une sortie                   *");
+			System.out.println("      * 1 - Créer un nouveau CAF                                *");
+			System.out.println("      * 2 - Créer une nouvelle activité                         *");
+			System.out.println("      * 3 - Ajouter une activité proposée par un CAF            *");
+			System.out.println("      * 4 - Consulter les informations sur un CAF               *");
+			System.out.println("      * 5 - Consulter toutes les informations sur une activité  *");
+                        System.out.println("      * 6 - Ajouter un moniteur                                 *");
+                        System.out.println("      * 7 - Ajouter une sortie a un CAF local                   *");
+                        System.out.println("      * 8 - Inscrire un nouvel Adhérent dans un CAF local       *");
+                        System.out.println("      * 9 - Inscrire un Adherent à une sortie                   *");
+                        System.out.println("      * 10- Inscrire un Moniteur à une sortie                   *");
                         System.out.println("****************************************************************");
 			System.out.println("      * 0- Quitter                                             *");
 			System.out.println("****************************************************************");
@@ -81,6 +82,11 @@ public class MenuFFCAM {
                                 case 9: {
                                         if (! ff.loadDB()) { ff.newDB();}
                                         ff.inscrireAdherentSortie();
+                                        ff.updateDB();
+                                        break; }
+                                case 10: {
+                                        if (! ff.loadDB()) { ff.newDB();}
+                                        ff.ajouterEncadrantSortie();
                                         ff.updateDB();
                                         break; }
 				default:
