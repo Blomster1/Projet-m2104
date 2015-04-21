@@ -32,6 +32,7 @@ public class MenuFFCAM {
                         System.out.println("      * 8 - Inscrire un nouvel Adhérent dans un CAF local       *");
                         System.out.println("      * 9 - Inscrire un Adherent à une sortie                   *");
                         System.out.println("      * 10- Inscrire un Moniteur à une sortie                   *");
+                        System.out.println("      * 11- Consulter sortie                                    *");
                         System.out.println("****************************************************************");
 			System.out.println("      * 0- Quitter                                             *");
 			System.out.println("****************************************************************");
