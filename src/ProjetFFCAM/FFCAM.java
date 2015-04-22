@@ -524,6 +524,45 @@ public void afficheInfos(){
         } else { success = false; }
         return success;
     }
+
+    public void consulterSortie() {
+        //consulte les informations sur une sortie.
+        String nomC;
+        String nomS;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Entrez le nom d'un club : ");
+        nomC = sc.nextLine();
+        
+        //verification si le club existe
+        if (this.getClub(nomC) != null) {
+            System.out.print("Entrez le nom d'une sortie : ");
+            nomS = sc.nextLine();
+            
+            //verification si la sortie existe 
+            if(this.getClub(nomC).getSortie(nomS) != null) {
+                //nom de l'activité correspondante :
+                System.out.print("Nom de l'activitée de cette sortie : " + this.getClub(nomC).getSortie(nomS).getType().getNomAct());
+                //les moniteurs qui l'encadrent :
+                System.out.println("Liste des encadrants de cette sortie : ");
+                for (Moniteur m : this.getClub(nomC).getSortie(nomS).getLesMoniteurs()) {
+                    System.out.println("- " + m.getNomPersonne() + " " + m.getPrenomPersonne() + "au numero : " + m.getNumero());
+                }
+                
+                //les adhérents qui sont inscrits :
+                System.out.println("Liste des adhérents de cette sortie : ");
+                for (Adherent a : this.getClub(nomC).getSortie(nomS).getLesParticipants()) {
+                    System.out.println("- " + a.getNomPersonne() + " " + a.getPrenomPersonne() + "au numero :  " + a.getNumAdherent());
+                }               
+            }
+            else {
+                System.out.println("ERREUR : la sortie n'existe pas. ");
+            }
+        }
+        else {
+            System.out.println("ERREUR : le club n'existe pas. ");
+        }
+
+    }
 }
 
 
