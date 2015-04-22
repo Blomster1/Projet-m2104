@@ -48,9 +48,9 @@ public class CAF implements Serializable {
         //Retourne une sortie en fonction de son nom
         return getSorties().get(nomS);
     }
-    public Adherent getAdherent(String nomA){
-        //Retourne un adherent en fonction de son nom
-        return getAdherents().get(nomA);
+    public Adherent getAdherent(String num){
+        //Retourne un adherent en fonction de son num
+        return getAdherents().get(num);
     }
         
     //SETTERS
@@ -117,7 +117,6 @@ public class CAF implements Serializable {
         //le numero d'adherent est composé des 3 premieres lettres du nom du club + le nom + un numéro généré aléatoirment.
             //on va utiliser subString pour récupérer les 3 premières lettres du nom du CAF.
         //Random r = new Random();
-        num = "e";//this.getNomCAF().substring(0, 2) + nom + r.nextInt(10);
         //on vérifie que l'adhérent n'existe pas.
         if (this.getAdherent(nom) != null) { 
             System.out.println("ERREUR : L'adherent existe déjà.");            

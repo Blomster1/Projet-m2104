@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FFCAM implements Serializable{
@@ -301,7 +302,7 @@ public void inscrireAdherentSortie() {
     //inscrit un adhérent dans une sortie d'un CAF
     String nomC;
     String nomS;
-    String nomA;
+    String numA;
     Scanner sc = new Scanner(System.in);
     //demande le nom d'un club dans lequel nous voulons ajouter l'adherent.
     System.out.print("Entrez le nom du club ou vous voulez inscrire l'adherent : ");
@@ -314,13 +315,13 @@ public void inscrireAdherentSortie() {
         //verification de l'existence d'une sortie : 
         if(this.getClub(nomC).getSortie(nomS) != null) {
             //demande du nom de l'Adherent
-            System.out.print("Entrez le nom de l'Adherent : ");
-            nomA = sc.nextLine();
+            System.out.print("Entrez le num de l'Adherent : ");
+            numA = sc.nextLine();
             //verifie si l'adherent existe
-            if((this.getClub(nomC).getAdherent(nomA) != null)) {
+            if((this.getClub(nomC).getAdherent(numA) != null)) {
                 //appel de ajouterParticipant pour la sortie de nom nomS
-                this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(nomA));
-                this.getClub(nomC).getAdherent(nomA).ajouterSortie(this.getClub(nomC).getSortie(nomS));
+                this.getClub(nomC).getSortie(nomS).ajouterParticipants(this.getClub(nomC).getAdherent(numA));
+                this.getClub(nomC).getAdherent(numA).ajouterSortie(this.getClub(nomC).getSortie(nomS));
             }
             else {
                 System.out.println("ERREUR : l'adherent n'existe pas.");
@@ -399,7 +400,7 @@ public void nouvelAdherent() {
     String nomClub;
     Scanner sc = new Scanner(System.in);
     String num, nom, prenom, adresse;
-    num = "";
+    Random r = new Random();
     
     System.out.print("Veuillez entrer le nom du club dans lequel vous voulez ajouter un adhérent : ");
     nomClub = sc.nextLine();
@@ -411,11 +412,15 @@ public void nouvelAdherent() {
     else {
         System.out.print("Entrez le nom de l'adherent : ");
         nom = sc.nextLine();
-        System.out.print("Entrez le prenom de l'adherent : ");
-        prenom = sc.nextLine();
-        System.out.print("Entrez l'adresse de l'adherent : ");
-        adresse = sc.nextLine();
-        this.getClub(nomClub).ajouterAdherent(num, nom, prenom, adresse);
+        num = this.getClub(nomClub).getNomCAF().substring(0, 3) + nom + r.nextInt(10);
+
+        
+            System.out.print("Entrez le prenom de l'adherent : ");
+            prenom = sc.nextLine();
+            System.out.print("Entrez l'adresse de l'adherent : ");
+            adresse = sc.nextLine();
+            this.getClub(nomClub).ajouterAdherent(num, nom, prenom, adresse);
+            System.out.print("numero de l'adhrent : " + num);
     }
 }
 public void afficheInfos(){ 
