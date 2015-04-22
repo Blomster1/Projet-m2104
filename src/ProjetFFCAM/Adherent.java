@@ -56,6 +56,7 @@ public class Adherent extends Personne implements Serializable {
     //AJOUT DE SORTIES
     @Override
     public void ajouterSortie(Sortie s){
+        this.setSoleNuites(this.getSoleNuites()+1);
         if(!lesSorties.contains(s)){
             this.addSortie(s);
         } else {
