@@ -566,7 +566,7 @@ public void afficheInfos(){
                 //les adhérents qui sont inscrits :
                 System.out.println("Liste des adhérents de cette sortie : ");
                 for (Adherent a : this.getClub(nomC).getSortie(nomS).getLesParticipants()) {
-                    System.out.println("- " + a.getNomPersonne() + " " + a.getPrenomPersonne() + "au numero :  " + a.getNumAdherent());
+                    System.out.println("- " + a.getNomPersonne() + " " + a.getPrenomPersonne() + "au numero :  " + a.getNumAdherent() + " avec un solde nuite de " + a.getSoleNuites());
                 }               
             } else {
                 System.out.println("ERREUR : la sortie n'existe pas. ");
