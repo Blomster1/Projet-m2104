@@ -5,19 +5,19 @@
  */
 package ProjetFFCAM;
 
-import java.util.HashSet;
-/**
- *
- * @author blomster
- */
 import java.io.Serializable;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
 
 public class Adherent extends Personne implements Serializable {
 
     private String adresse;
     private double soleNuites = 0;
     HashSet<Sortie> lesSorties;
-
+//    HashSet<Inscription> lesInscriptions;
+    HashMap<Sortie,Inscription> inscriptions;
 
     private String numAdherent;
     
@@ -27,7 +27,10 @@ public class Adherent extends Personne implements Serializable {
         this.setNumAdherent(num);
         //this.setSoleNuites(solde);
         lesSorties = new HashSet<>();
+//        lesInscriptions = new HashSet<>();
+        inscriptions = new HashMap<>();
     }
+
 
     //GETTERS
     public String getNumAdherent() {
@@ -39,6 +42,23 @@ public class Adherent extends Personne implements Serializable {
     public double getSoleNuites() {
         return soleNuites;
     }
+
+    public HashMap<Sortie,Inscription> getInscriptions() {
+//        return lesInscriptions;
+        return inscriptions;
+    }
+    
+    public Inscription getInscription (Sortie s) {
+        return this.getInscriptions().get(s);
+        
+//        for (Inscription i : this.getLesInscriptions()) {
+//            if (i.getSortie().equals(s)){
+//                return i;
+//            }
+////        }
+//        return null;
+    }
+    
     
     //SETTERS
     
@@ -63,6 +83,15 @@ public class Adherent extends Personne implements Serializable {
             System.out.println("ERREUR : la sortie existe déjà. ");
             }
         }
+
+    public void ajouterInscription(Inscription i) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Combien de personnes vous accompagne ?");
+                int accompagnants = sc.nextInt();
+        i.setAccompagnant(accompagnants);
+        this.setSoleNuites(this.getSoleNuites() + i.getSortie().getPrixNuite());
+        this.getInscriptions().put(i.getSortie(), i);
+    }
     
 
 }
